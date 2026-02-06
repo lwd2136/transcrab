@@ -124,7 +124,8 @@ const { title = 'TransCrab', description } = Astro.props;
         width: 1.05em;
         height: 1.05em;
         flex: 0 0 1.05em;
-        transform: translateY(0.08em);
+        /* Nudge up a bit to align optically with the title */
+        transform: translateY(-2px);
       }
 
       footer {
