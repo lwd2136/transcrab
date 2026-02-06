@@ -7,6 +7,10 @@ const { title = 'TransCrab', description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description ? <meta name="description" content={description} /> : null}
+
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
     <style>
       :root {
         color-scheme: light dark;
@@ -55,6 +59,56 @@ const { title = 'TransCrab', description } = Astro.props;
         font-size: 0.95em;
       }
 
+      /* Images */
+      article img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      article a.img-zoom {
+        display: inline-block;
+        cursor: zoom-in;
+      }
+
+      /* Blockquotes */
+      blockquote {
+        margin: 1.2rem 0;
+        padding: 0.25rem 0 0.25rem 1rem;
+        border-left: 4px solid rgba(127,127,127,.35);
+        opacity: .92;
+      }
+      blockquote p { margin: .6rem 0; }
+
+      /* Image modal */
+      .img-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,.72);
+        z-index: 9999;
+        padding: 2rem;
+      }
+      .img-modal.open { display: flex; }
+      .img-modal img {
+        max-width: min(92vw, 1200px);
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        cursor: zoom-out;
+      }
+      .img-modal .hint {
+        position: fixed;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        opacity: .75;
+      }
+
       hr { border: none; border-top: 1px solid rgba(127,127,127,.25); margin: 2rem 0; }
 
       .meta { opacity: .72; font-size: .92rem; margin-top: .25rem; }
@@ -67,10 +121,10 @@ const { title = 'TransCrab', description } = Astro.props;
         gap: 0.5rem;
       }
       img.brand-mark {
-        width: 20px;
-        height: 20px;
-        flex: 0 0 20px;
-        transform: translateY(1px);
+        width: 1.05em;
+        height: 1.05em;
+        flex: 0 0 1.05em;
+        transform: translateY(0.08em);
       }
 
       footer {
@@ -85,6 +139,11 @@ const { title = 'TransCrab', description } = Astro.props;
   <body>
     <slot />
 
+    <div class="img-modal" id="img-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <img id="img-modal-img" alt="" />
+      <div class="hint">Click / ESC to close</div>
+    </div>
+
     <footer>
       Made with ❤️ by <a class="footer-link" href="https://x.com/onevcat" target="_blank" rel="noreferrer">@onevcat</a>.
     </footer>
@@ -96,6 +155,46 @@ const { title = 'TransCrab', description } = Astro.props;
       try {
         pangu.spacingElementByElement(document.body);
       } catch {}
+
+      // Code highlighting (client-side, lightweight)
+      try {
+        const { default: hljs } = await import('https://esm.sh/highlight.js@11.9.0');
+        hljs.highlightAll();
+      } catch {}
+
+      // Image zoom modal
+      const modal = document.getElementById('img-modal');
+      const modalImg = document.getElementById('img-modal-img');
+      function closeModal() {
+        modal?.classList.remove('open');
+        modal?.setAttribute('aria-hidden', 'true');
+        if (modalImg) modalImg.src = '';
+      }
+      function openModal(src) {
+        if (!modal || !modalImg) return;
+        modalImg.src = src;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      // Wrap article images with a zoomable anchor
+      for (const img of document.querySelectorAll('article img')) {
+        if (!img.src) continue;
+        const a = document.createElement('a');
+        a.href = img.src;
+        a.className = 'img-zoom';
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(img.src);
+        });
+        img.parentNode?.insertBefore(a, img);
+        a.appendChild(img);
+      }
+
+      modal?.addEventListener('click', closeModal);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
     </script>
   </body>
 </html>
