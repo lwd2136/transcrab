@@ -8,7 +8,6 @@ import TurndownService from 'turndown';
 import matter from 'gray-matter';
 import slugify from 'slugify';
 import { fetch } from 'undici';
-import { spawnSync } from 'node:child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,12 +16,12 @@ const CONTENT_ROOT = path.join(ROOT, 'content', 'articles');
 
 function usage() {
   console.log(`Usage:
-  node scripts/add-url.mjs <url> [--lang zh] [--model <modelId>]
+  node scripts/add-url.mjs <url> [--lang zh]
 
 Notes:
   - Fetches HTML, extracts main article (Readability), converts to Markdown (Turndown)
-  - Translates Markdown via OpenClaw agent (CLI)
-  - If --model is omitted, uses the current OpenClaw default model (openclaw models status)
+  - Writes source.md + meta.json
+  - Generates a translation prompt for the running OpenClaw assistant (does NOT call OpenClaw)
 `);
 }
 
@@ -40,7 +39,6 @@ if (args.length === 0 || args.includes('-h') || args.includes('--help')) {
 
 const url = args[0];
 const lang = argValue(args, '--lang', 'zh');
-const model = argValue(args, '--model', null);
 
 await fs.mkdir(CONTENT_ROOT, { recursive: true });
 
@@ -62,29 +60,22 @@ const sourceFrontmatter = {
 const sourceMd = matter.stringify(markdown, sourceFrontmatter);
 await fs.writeFile(path.join(dir, 'source.md'), sourceMd, 'utf-8');
 
-const translated = translateMarkdown(markdown, { targetLang: lang, model });
-const zhFrontmatter = {
-  title: title || slug,
-  date,
-  sourceUrl: url,
-  lang,
-  ...(model ? { model } : {}),
-};
-const zhMd = matter.stringify(translated, zhFrontmatter);
-await fs.writeFile(path.join(dir, `${lang}.md`), zhMd, 'utf-8');
-
 const meta = {
   slug,
   title: title || slug,
   date,
   sourceUrl: url,
-  ...(model ? { model } : {}),
   targetLang: lang,
   createdAt: now.toISOString(),
 };
 await fs.writeFile(path.join(dir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n', 'utf-8');
 
-console.log(`OK: ${slug}`);
+const prompt = buildTranslatePrompt(markdown, lang);
+const promptPath = path.join(dir, `translate.${lang}.prompt.txt`);
+await fs.writeFile(promptPath, prompt + '\n', 'utf-8');
+
+// Print a machine-readable summary for wrappers.
+console.log(JSON.stringify({ ok: true, slug, dir, lang, promptPath }, null, 2));
 
 // ----------------
 
@@ -92,8 +83,9 @@ async function fetchHtml(url) {
   const res = await fetch(url, {
     redirect: 'follow',
     headers: {
-      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
-      'accept': 'text/html,application/xhtml+xml',
+      'user-agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
+      accept: 'text/html,application/xhtml+xml',
     },
   });
   if (!res.ok) {
@@ -126,62 +118,6 @@ async function htmlToMarkdown(html, baseUrl) {
 function makeSlug(title) {
   const s = slugify(title, { lower: true, strict: true, trim: true });
   return s || `article-${Date.now()}`;
-}
-
-function translateMarkdown(sourceMarkdown, { targetLang, model }) {
-  const prompt = buildTranslatePrompt(sourceMarkdown, targetLang);
-
-  // Model selection:
-  // - If --model is omitted, we use OpenClaw's current default model.
-  // - If --model is provided, we try to switch default model temporarily.
-  // NOTE: This assumes you run one translation at a time.
-  const status = getOpenClawModelsStatus();
-  const before = status?.defaultModel || status?.resolvedDefault || null;
-  const allowed = new Set(status?.allowed || []);
-
-  let switched = false;
-  try {
-    if (model) {
-      if (allowed.size > 0 && !allowed.has(model)) {
-        throw new Error(
-          `Requested model not allowed by this OpenClaw config: ${model}\n` +
-          `Allowed models: ${Array.from(allowed).join(', ')}`
-        );
-      }
-      if (before && model !== before) {
-        run(['openclaw', 'models', 'set', model]);
-        switched = true;
-      }
-    }
-
-    const r = run(['openclaw', 'agent', '--agent', 'main', '--message', prompt]);
-
-    const out = (r.stdout || '').trim();
-    // Best-effort: strip code fences if the model wrapped it.
-    return out.replace(/^```[a-zA-Z]*\n/, '').replace(/\n```\s*$/, '').trim() + '\n';
-  } finally {
-    if (switched && before) {
-      run(['openclaw', 'models', 'set', before]);
-    }
-  }
-}
-
-function getOpenClawModelsStatus() {
-  const r = spawnSync('openclaw', ['models', 'status', '--json'], { encoding: 'utf-8' });
-  if (r.status !== 0) return null;
-  try {
-    return JSON.parse(r.stdout);
-  } catch {
-    return null;
-  }
-}
-
-function run(cmd) {
-  const r = spawnSync(cmd[0], cmd.slice(1), { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 });
-  if (r.status !== 0) {
-    throw new Error(`${cmd.join(' ')} failed: ${r.stderr || r.stdout}`);
-  }
-  return r;
 }
 
 function buildTranslatePrompt(md, targetLang) {

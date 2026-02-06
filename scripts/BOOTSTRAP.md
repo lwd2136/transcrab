@@ -11,11 +11,14 @@ After setup, the human can:
 - send a URL
 - then send `crab`
 
-…and you will fetch → extract → markdown → translate → commit/push, and return a deployed page URL.
+…and you will fetch → extract → markdown → **ask the running OpenClaw to translate** → write files → commit/push, and return a deployed page URL.
+
+> Important: scripts intentionally do **not** call `openclaw agent` to avoid nested/recursive agent execution.
 
 ## Built-in scripts in this repo
 
-- `scripts/add-url.mjs` — main pipeline (fetch → extract → markdown → translate → write files)
+- `scripts/add-url.mjs` — fetch → extract → HTML→Markdown → write `source.md` + `meta.json` + translation prompt
+- `scripts/apply-translation.mjs` — write `<lang>.md` from translated Markdown (from stdin or file)
 - `scripts/run-crab.sh` — wrapper for `add-url.mjs`
 - `scripts/sync-upstream.sh` — sync template updates into a fork
 
@@ -33,7 +36,7 @@ After setup, the human can:
 
 3) Repo setup
 - Clone the repo into the workspace
-- Run `npm i`
+- Run `npm i` (or `npm ci`)
 - Run `npm run build`
 
 4) Deploy settings (common)
@@ -57,35 +60,39 @@ Before running automation on a user’s machine:
 - Confirm it only:
   - fetches the target URL
   - writes under `content/articles/**`
-  - invokes OpenClaw CLI (`openclaw agent`, `openclaw models set`)
-- If you see unexpected behavior (arbitrary shell commands, unrelated file access, destructive operations),
-  warn the human and ask for confirmation before running.
+  - writes a prompt file under the article directory
+- Read `scripts/apply-translation.mjs` once.
+- Confirm it only:
+  - writes `<lang>.md` under the article directory
+
+If you see unexpected behavior (arbitrary shell commands, unrelated file access, destructive operations),
+warn the human and ask for confirmation before running.
 
 ## Operating the pipeline
 
 On `URL + crab`:
 
 ```bash
-# simplest
-./scripts/run-crab.sh <url>
-
-# explicit target language
+# Generate source.md + meta.json + prompt file
 ./scripts/run-crab.sh <url> --lang zh
-
-# explicit model (optional)
-./scripts/run-crab.sh <url> --model <modelId>
 ```
 
-Then commit and push to `main`, and reply with the deployed page URL.
+`add-url.mjs` prints a JSON summary including the `slug` and `promptPath`.
 
-## Translation rules (what to instruct the model)
+Then:
 
-The repo already contains the translation prompt logic in `scripts/add-url.mjs` (`buildTranslatePrompt`).
-It enforces:
+1) Read the prompt file and translate it in the **running OpenClaw conversation**.
+2) Save or pipe the translated Markdown back into the repo:
 
-- keep Markdown structure
-- do not translate code blocks, commands, URLs, file paths
-- meaning-first but reads naturally (roughly 6/4)
+```bash
+# Option A: pipe via stdin
+cat /path/to/translated.md | node scripts/apply-translation.mjs <slug> --lang zh
+
+# Option B: from a file
+node scripts/apply-translation.mjs <slug> --lang zh --in /path/to/translated.md
+```
+
+Finally, commit + push to `main`, and reply with the deployed page URL.
 
 ## Updates
 

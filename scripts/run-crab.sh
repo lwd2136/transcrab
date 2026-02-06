@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Convenience wrapper for the bot:
-# URL + optional flags -> run TransCrab pipeline locally.
+# TransCrab bot wrapper (no translation inside scripts).
 #
 # Usage:
-#   ./scripts/run-crab.sh <url> [--lang zh] [--model <modelId>]
+#   ./scripts/run-crab.sh <url> [--lang zh]
 #
-# If --model is omitted, TransCrab uses your OpenClaw default model.
+# What it does:
+#   1) Fetch + extract + convert to Markdown
+#   2) Writes content/articles/<slug>/source.md + meta.json
+#   3) Writes a translation prompt file: content/articles/<slug>/translate.<lang>.prompt.txt
+#
+# Next step (OpenClaw assistant):
+#   - Translate the prompt using the running conversation model
+#   - Then write/apply the translation:
+#       node scripts/apply-translation.mjs <slug> --lang <lang> --in <file>
 
 node ./scripts/add-url.mjs "$@"

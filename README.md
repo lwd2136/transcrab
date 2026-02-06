@@ -99,7 +99,8 @@ This repo ships an optional starter skill under `skills/transcrab/`.
 
 This template already includes scripts you can call:
 
-- `scripts/add-url.mjs`: the main pipeline (fetch → extract → markdown → translate → write files)
+- `scripts/add-url.mjs`: fetch → extract → HTML→Markdown → write `source.md` + `meta.json` + translation prompt
+- `scripts/apply-translation.mjs`: write `<lang>.md` from translated Markdown (from stdin or file)
 - `scripts/run-crab.sh`: thin wrapper around `add-url.mjs`
 - `scripts/sync-upstream.sh`: keep a fork up to date with template changes
 
@@ -110,33 +111,39 @@ Before running automation on a user’s machine, you should quickly read the scr
 - Skim `scripts/add-url.mjs` to understand:
   - it performs network fetches to the target URL
   - it writes files under `content/articles/**`
-  - it runs `openclaw` CLI commands (`openclaw agent`, `openclaw models set`)
+  - it **does not** run model calls by itself (it only generates a translation prompt)
+- Skim `scripts/apply-translation.mjs` to understand:
+  - it writes `<lang>.md` under the article directory
 - If you see anything that looks risky or unexpected (running arbitrary shell commands, touching unrelated paths, etc.),
   **warn the user and ask for confirmation**.
 
 ### 5) Translation mechanism (what actually happens)
 
-Translation is implemented inside `scripts/add-url.mjs`:
+Translation is intentionally **not performed by scripts**.
 
-- It builds a strict translation prompt (`buildTranslatePrompt`) that instructs the model to:
-  - preserve Markdown structure
-  - not translate code blocks / commands / URLs / file paths
-  - keep meaning first but read naturally (roughly 6/4)
-- It then invokes OpenClaw via CLI:
-  - reads the current default model (`openclaw models status --json`)
-  - temporarily switches to the requested model (`openclaw models set ...`) if needed
-  - runs an agent turn (`openclaw agent --agent main --message <prompt>`)
-  - switches the default model back
+Why? Calling `openclaw agent` from inside a script can cause nested/recursive agent execution and hang in real deployments.
 
-Note: `openclaw agent` uses the running OpenClaw gateway and the user’s configured model auth (OAuth/API key) stored in OpenClaw.
+Instead:
+
+- `scripts/add-url.mjs` generates a strict translation prompt and writes it to:
+  - `content/articles/<slug>/translate.<lang>.prompt.txt`
+- The running OpenClaw assistant translates that prompt in the current conversation (using the user’s default model/provider).
+- `scripts/apply-translation.mjs` writes the translated markdown to:
+  - `content/articles/<slug>/<lang>.md`
+
+This keeps the UX stable and avoids deadlocks.
 
 ### 6) Output format
 
 On `URL + crab`, write under `content/articles/<slug>/`:
 
 - `source.md`
-- `<lang>.md` (e.g. `zh.md`)
 - `meta.json`
+- `translate.<lang>.prompt.txt`
+
+After the assistant translates, write:
+
+- `<lang>.md` (e.g. `zh.md`)
 
 Then commit + push to `main` and reply with the deployed page URL.
 
