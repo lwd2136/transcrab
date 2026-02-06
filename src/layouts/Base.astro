@@ -66,6 +66,20 @@ const { title = 'TransCrab', description } = Astro.props;
         font-size: 0.95em;
       }
 
+      /* highlight.js theme overrides
+         - some themes add their own background/padding on .hljs, which conflicts
+           with our <pre> styling (background + padding).
+         - keep our container styling; let hljs only color tokens.
+      */
+      pre code.hljs {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .hljs {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+
       /* Images */
       article img {
         max-width: 100%;
