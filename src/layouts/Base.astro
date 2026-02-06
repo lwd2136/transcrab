@@ -61,6 +61,13 @@ const { title = 'TransCrab', description } = Astro.props;
         background: rgba(127,127,127,.08);
       }
 
+      /* Astro/Shiki code blocks */
+      pre.astro-code {
+        background: rgba(127,127,127,.08) !important;
+        color: inherit !important;
+      }
+      pre.astro-code code { background: transparent !important; }
+
       code {
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         font-size: 0.95em;
