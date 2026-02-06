@@ -11,11 +11,9 @@ const { title = 'TransCrab', description } = Astro.props;
     <link rel="icon" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
-    <!-- Code highlight themes -->
-    <!-- Light mode: keep it subtle and let our own <pre> background show through -->
-    <link rel="stylesheet" href="/hljs/github.css" media="(prefers-color-scheme: light)" />
-    <!-- Dark mode: Kanagawabones-inspired (transparent background) -->
-    <link rel="stylesheet" href="/hljs/kanagawabones.css" media="(prefers-color-scheme: dark)" />
+    <!-- Code highlight themes (we toggle by JS to support manual theme switching) -->
+    <link id="hljs-light" rel="stylesheet" href="/hljs/github.css" />
+    <link id="hljs-dark" rel="stylesheet" href="/hljs/kanagawabones.css" />
 
     <style is:global>
       :root {
@@ -23,6 +21,9 @@ const { title = 'TransCrab', description } = Astro.props;
         --page-max: 900px;
         --text-max: 760px;
       }
+
+      html[data-theme="light"] { color-scheme: light; }
+      html[data-theme="dark"] { color-scheme: dark; }
 
       body {
         font-family: ui-sans-serif, system-ui, -apple-system;
@@ -121,21 +122,45 @@ const { title = 'TransCrab', description } = Astro.props;
       .nav a { margin-right: .75rem; }
       .nav { margin-bottom: 0.75rem; }
 
-      /* Brand */
-      h1.brand {
+      /* Header / Brand */
+      header.site-header {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        margin: 0 0 1.2rem 0;
+      }
+      a.brand {
+        display: inline-flex;
+        align-items: center;
         gap: 0.5rem;
+        text-decoration: none;
       }
-      h1.brand > span {
-        margin-left: 2px;
-      }
+      a.brand > span { margin-left: 2px; font-weight: 700; font-size: 1.35rem; }
       img.brand-mark {
         width: 1.05em;
         height: 1.05em;
         flex: 0 0 1.05em;
         transform: translateY(1.5px);
       }
+
+      button.icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid rgba(127,127,127,.22);
+        background: rgba(127,127,127,.08);
+        color: inherit;
+        cursor: pointer;
+      }
+      button.icon-btn:hover { background: rgba(127,127,127,.12); }
+      button.icon-btn svg { width: 18px; height: 18px; display: block; }
+
+      /* Theme icon switching */
+      html[data-theme="light"] .icon-moon { display: none; }
+      html[data-theme="dark"] .icon-sun { display: none; }
 
       footer {
         margin-top: 3rem;
@@ -147,6 +172,24 @@ const { title = 'TransCrab', description } = Astro.props;
     </style>
   </head>
   <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="TransCrab Home">
+        <img class="brand-mark" src="/assets/transcrab-mark.png" alt="" aria-hidden="true" />
+        <span>TransCrab</span>
+      </a>
+
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+        <!-- Sun (light) / Moon (dark) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M5 19l1.5-1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 14.2A8.5 8.5 0 0 1 9.8 3a7 7 0 1 0 11.2 11.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </header>
+
     <slot />
 
     <div class="img-modal" id="img-modal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -154,8 +197,22 @@ const { title = 'TransCrab', description } = Astro.props;
       <div class="hint">Click / ESC to close</div>
     </div>
 
-    <footer>
-      Made with ❤️ by <a class="footer-link" href="https://x.com/onevcat" target="_blank" rel="noreferrer">@onevcat</a>.
+    <footer style="display:flex; align-items:center; justify-content:space-between; gap: 1rem;">
+      <div>
+        <a class="footer-link" href="/about/">关于</a>
+      </div>
+
+      <div>
+        Made with ❤️ by <a class="footer-link" href="https://x.com/onevcat" target="_blank" rel="noreferrer">@onevcat</a>.
+      </div>
+
+      <div>
+        <a class="footer-link" href="https://github.com/onevcat/transcrab" target="_blank" rel="noreferrer" aria-label="GitHub repo" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;vertical-align:-3px;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.62 2 12.31c0 4.55 2.865 8.41 6.839 9.77.5.1.682-.22.682-.48 0-.24-.009-.86-.014-1.69-2.782.62-3.369-1.38-3.369-1.38-.454-1.19-1.11-1.5-1.11-1.5-.907-.64.069-.63.069-.63 1.003.07 1.53 1.06 1.53 1.06.892 1.57 2.341 1.12 2.91.86.091-.67.35-1.12.636-1.38-2.221-.26-4.555-1.14-4.555-5.08 0-1.12.39-2.03 1.029-2.75-.103-.26-.446-1.3.098-2.71 0 0 .84-.28 2.75 1.05a9.2 9.2 0 0 1 2.504-.35c.85 0 1.705.12 2.504.35 1.909-1.33 2.748-1.05 2.748-1.05.546 1.41.203 2.45.1 2.71.64.72 1.028 1.63 1.028 2.75 0 3.95-2.338 4.82-4.566 5.07.36.32.68.95.68 1.91 0 1.38-.012 2.49-.012 2.83 0 .26.18.59.688.49A10.02 10.02 0 0 0 22 12.31C22 6.62 17.523 2 12 2Z"/>
+          </svg>
+        </a>
+      </div>
     </footer>
 
     <script type="module">
@@ -166,14 +223,39 @@ const { title = 'TransCrab', description } = Astro.props;
         pangu.spacingElementByElement(document.body);
       } catch {}
 
+      // Theme toggle (persisted)
+      const hljsLight = document.getElementById('hljs-light');
+      const hljsDark = document.getElementById('hljs-dark');
+
+      function systemPref() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+
+      function applyTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        // highlight.js theme links
+        if (hljsLight) hljsLight.disabled = theme !== 'light';
+        if (hljsDark) hljsDark.disabled = theme !== 'dark';
+      }
+
+      const saved = localStorage.getItem('theme');
+      applyTheme(saved || systemPref());
+
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const cur = document.documentElement.dataset.theme || systemPref();
+        const next = cur === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', next);
+        applyTheme(next);
+      });
+
       // Code highlighting (client-side)
-      // Theme is loaded via CSS (see <head>).
       try {
-        // Use an ESM loader for browser execution. (Bare specifiers like "highlight.js" won't resolve in the browser.)
         const { default: hljs } = await import('https://esm.sh/highlight.js@11.9.0');
 
         // If a block declares a language (```swift), respect it.
-        // Otherwise do NOT auto-detect to avoid random languages like abnf/apache/maxima.
+        // Otherwise do NOT auto-detect.
         for (const el of document.querySelectorAll('pre code')) {
           const cls = el.className || '';
           const m = cls.match(/language-([a-z0-9_+-]+)/i);
@@ -184,8 +266,6 @@ const { title = 'TransCrab', description } = Astro.props;
               continue;
             }
           }
-          // No (valid) language specified: just apply baseline styling.
-          // This prevents noisy autodetection.
           el.classList.add('hljs');
         }
       } catch {}
