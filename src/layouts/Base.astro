@@ -11,8 +11,11 @@ const { title = 'TransCrab', description } = Astro.props;
     <link rel="icon" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
-    <!-- Code highlight theme (Kanagawa-like preference: try Tokyo Night Dark as close lightweight default) -->
-    <link rel="stylesheet" href="/hljs/tokyo-night-dark.css" />
+    <!-- Code highlight themes -->
+    <!-- Light mode: keep it subtle and let our own <pre> background show through -->
+    <link rel="stylesheet" href="/hljs/github.css" media="(prefers-color-scheme: light)" />
+    <!-- Dark mode: Kanagawabones-inspired (transparent background) -->
+    <link rel="stylesheet" href="/hljs/kanagawabones.css" media="(prefers-color-scheme: dark)" />
 
     <style is:global>
       :root {

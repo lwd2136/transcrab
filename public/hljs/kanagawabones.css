@@ -1,0 +1,77 @@
+/* Kanagawabones-inspired highlight.js theme (derived from iTerm2 Kanagawabones.itermcolors)
+   - Background intentionally transparent to avoid fighting site code block backgrounds.
+*/
+
+:root {
+  --kb-bg: #1f1f28;
+  --kb-fg: #ddd8bb;
+  --kb-muted: #a8a48d;
+  --kb-comment: #3c3c51;
+
+  --kb-red: #e46a78;
+  --kb-green: #98bc6d;
+  --kb-yellow: #e5c283;
+  --kb-blue: #7eb3c9;
+  --kb-magenta: #957fb8;
+  --kb-cyan: #7bc2df;
+}
+
+.hljs {
+  color: var(--kb-fg);
+  background: transparent !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--kb-muted);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--kb-magenta);
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-name {
+  color: var(--kb-blue);
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-addition {
+  color: var(--kb-green);
+}
+
+.hljs-number,
+.hljs-attr,
+.hljs-attribute,
+.hljs-variable,
+.hljs-template-variable {
+  color: var(--kb-yellow);
+}
+
+.hljs-built_in,
+.hljs-type,
+.hljs-class {
+  color: var(--kb-cyan);
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: var(--kb-red);
+}
+
+.hljs-deletion {
+  color: var(--kb-red);
+}
+
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
+
+/* ensure <pre><code> doesn't reintroduce a background */
+pre code.hljs { background: transparent !important; }
