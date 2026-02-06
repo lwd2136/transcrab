@@ -11,41 +11,44 @@ After setup, your assistant can take a link + the keyword `crab` and will:
 1) fetch the article
 2) convert HTML → Markdown
 3) translate Markdown (default: zh-Hans)
-4) commit + push to your personal repo
+4) commit + push
 5) Netlify rebuilds → you get a polished page URL
 
-## Recommended repo setup
+## Quick start (recommended)
 
-To keep the template clean (and avoid publishing third‑party content by default), use two repos:
+For most users, a single repo is enough:
 
-- **Template (public):** `transcrab` (this repo)
-- **Personal content (private):** `transcrab-<you>` (your own repo for articles)
+1) **Fork** this repo
+2) Deploy your fork to Netlify
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+3) Use your assistant to add articles (URL → `crab`)
 
-Deploy the **personal** repo to Netlify.
+## Upgrading / keeping in sync with upstream
+
+In your fork clone, add this repo as `upstream`, then merge updates when needed:
+
+```bash
+git remote add upstream https://github.com/onevcat/transcrab.git
+git fetch upstream
+git merge upstream/main
+git push
+```
+
+(If you prefer a one-command workflow, see `scripts/sync-upstream.sh`.)
 
 ## One-time setup (tell your assistant)
 
 Copy/paste to your OpenClaw assistant:
 
-> Create a private repo named `transcrab-<me>` for my content site.
-> Clone `onevcat/transcrab` locally, set remotes:
-> - `upstream` → template repo
-> - `origin` → my private repo
-> Push code to `origin/main`.
-> Configure Netlify with build command `npm run build` and publish dir `dist`.
+> Fork `onevcat/transcrab` to my GitHub.
+> Deploy the fork to Netlify (build: `npm run build`, publish: `dist`).
+> When I send a URL then send `crab`, add the article: fetch → markdown → translate zh → commit + push, and reply with the new page URL.
 
 ## Daily use
 
 - Send a URL, then send `crab`.
 - If you want a different behavior, explicitly say so (e.g. `raw`, `sum`, `tr:ja`).
-
-## Keeping your personal repo up to date
-
-In your personal repo clone:
-
-```bash
-./scripts/sync-upstream.sh
-```
 
 ## Requirements (local)
 
