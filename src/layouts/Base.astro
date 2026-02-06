@@ -126,12 +126,14 @@ const { title = 'TransCrab', description } = Astro.props;
         align-items: center;
         gap: 0.5rem;
       }
+      h1.brand > span {
+        margin-left: 2px;
+      }
       img.brand-mark {
         width: 1.05em;
         height: 1.05em;
         flex: 0 0 1.05em;
-        /* Nudge up a bit to align optically with the title */
-        transform: translateY(-2px);
+        transform: translateY(1.5px);
       }
 
       footer {
