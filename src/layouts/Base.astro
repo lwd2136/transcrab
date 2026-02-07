@@ -42,8 +42,9 @@ const { title = 'TransCrab', description } = Astro.props;
       }
 
       a { color: inherit; }
-      a.footer-link { color: rgba(60, 140, 210, .85); text-decoration: none; }
+      a.footer-link { color: #2f7fca; text-decoration: none; }
       a.footer-link:hover { text-decoration: underline; }
+      html[data-theme="dark"] a.footer-link { color: #7cc3ff; }
 
       h1 { line-height: 1.25; margin: 0 0 0.5rem 0; }
       h2, h3 { line-height: 1.35; margin-top: 2rem; }
