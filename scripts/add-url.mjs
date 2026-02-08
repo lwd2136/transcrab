@@ -44,6 +44,37 @@ const lang = argValue(args, '--lang', 'zh');
 
 await fs.mkdir(CONTENT_ROOT, { recursive: true });
 
+const normalizedSourceUrl = normalizeSourceUrl(url);
+const existing = await findExistingArticleBySourceUrl(normalizedSourceUrl);
+if (existing) {
+  const sourcePath = path.join(existing.dir, 'source.md');
+  const sourceRaw = await fs.readFile(sourcePath, 'utf-8');
+  const parsed = matter(sourceRaw);
+  const markdown = String(parsed.content || '').trim() + '\n';
+
+  const prompt = buildTranslatePrompt(markdown, lang);
+  const promptPath = path.join(existing.dir, `translate.${lang}.prompt.txt`);
+  await fs.writeFile(promptPath, prompt + '\n', 'utf-8');
+
+  console.log(
+    JSON.stringify(
+      {
+        ok: true,
+        slug: existing.slug,
+        dir: existing.dir,
+        lang,
+        promptPath,
+        date: existing.meta?.date || new Date().toISOString(),
+        idempotent: true,
+        reused: true,
+      },
+      null,
+      2,
+    ),
+  );
+  process.exit(0);
+}
+
 const html = await fetchHtml(url);
 const { title, markdown } = await htmlToMarkdown(html, url);
 const baseSlug = makeSlug(title || url);
@@ -55,7 +86,7 @@ const date = now.toISOString();
 const sourceFrontmatter = {
   title: title || slug,
   date,
-  sourceUrl: url,
+  sourceUrl: normalizedSourceUrl,
   lang: 'source',
 };
 const sourceMd = matter.stringify(markdown, sourceFrontmatter);
@@ -65,7 +96,7 @@ const meta = {
   slug,
   title: title || slug,
   date,
-  sourceUrl: url,
+  sourceUrl: normalizedSourceUrl,
   targetLang: lang,
 };
 await fs.writeFile(path.join(dir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n', 'utf-8');
@@ -483,6 +514,53 @@ async function makeUniqueSlugDir(baseSlug) {
   dir = path.join(CONTENT_ROOT, slug);
   await fs.mkdir(dir, { recursive: true });
   return { slug, dir };
+}
+
+function normalizeSourceUrl(input) {
+  try {
+    const u = new URL(String(input || '').trim());
+    // Keep origin + path only; ignore query/hash to improve idempotency for tracking params.
+    return `${u.origin}${u.pathname}`.replace(/\/$/, '');
+  } catch {
+    return String(input || '').trim();
+  }
+}
+
+async function findExistingArticleBySourceUrl(normalizedUrl) {
+  let entries = [];
+  try {
+    entries = await fs.readdir(CONTENT_ROOT, { withFileTypes: true });
+  } catch {
+    return null;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const dir = path.join(CONTENT_ROOT, entry.name);
+    const metaPath = path.join(dir, 'meta.json');
+
+    let meta = null;
+    try {
+      const raw = await fs.readFile(metaPath, 'utf-8');
+      meta = JSON.parse(raw);
+    } catch {
+      // Ignore malformed/missing meta and continue scanning.
+      continue;
+    }
+
+    const candidate = normalizeSourceUrl(meta?.sourceUrl || '');
+    if (!candidate) continue;
+
+    if (candidate === normalizedUrl) {
+      return {
+        slug: meta?.slug || entry.name,
+        dir,
+        meta,
+      };
+    }
+  }
+
+  return null;
 }
 
 function buildTranslatePrompt(md, targetLang) {
