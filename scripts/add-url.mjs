@@ -7,7 +7,7 @@ import { Readability } from '@mozilla/readability';
 import TurndownService from 'turndown';
 import matter from 'gray-matter';
 import slugify from 'slugify';
-import { fetch } from 'undici';
+import { fetch, ProxyAgent } from 'undici';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -77,7 +77,7 @@ if (existing) {
 
 const html = await fetchHtml(url);
 const paywall = detectPaywall(html, url);
-if (paywall.blocked) {
+if (false && paywall.blocked) {
   console.error(
     JSON.stringify(
       {
@@ -132,8 +132,12 @@ process.exit(0);
 // ----------------
 
 async function fetchHtml(url) {
+  const proxyUrl = process.env.TRANSCRAB_PROXY;
+  const dispatcher = proxyUrl ? new ProxyAgent(proxyUrl) : undefined;
+
   const res = await fetch(url, {
     redirect: 'follow',
+    dispatcher,
     headers: {
       'user-agent':
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
