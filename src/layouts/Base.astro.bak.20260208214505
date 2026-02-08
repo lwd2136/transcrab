@@ -1,0 +1,414 @@
+---
+const { title = 'TransCrab', description } = Astro.props;
+---
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description ? <meta name="description" content={description} /> : null}
+
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+    <!-- Code highlight themes (we toggle by JS to support manual theme switching) -->
+    <link id="hljs-light" rel="stylesheet" href="/hljs/github.css" />
+    <link id="hljs-dark" rel="stylesheet" href="/hljs/kanagawabones.css" />
+
+    <style is:global>
+      :root {
+        color-scheme: light dark;
+        --page-max: 900px;
+        --text-max: 760px;
+      }
+
+      html[data-theme="light"] { color-scheme: light; }
+      html[data-theme="dark"] { color-scheme: dark; }
+
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system;
+        margin: 2.2rem auto;
+        max-width: var(--page-max);
+        padding: 0 1.25rem;
+        line-height: 1.85;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Better Chinese + Latin spacing when supported */
+      article {
+        max-width: var(--text-max);
+        text-spacing: auto;
+        overflow-wrap: anywhere;
+      }
+
+      a { color: inherit; }
+      a.footer-link { color: #2f7fca; text-decoration: none; }
+      a.footer-link:hover { text-decoration: underline; }
+      html[data-theme="dark"] a.footer-link { color: #7cc3ff; }
+
+      h1 { line-height: 1.25; margin: 0 0 0.5rem 0; }
+      h2, h3 { line-height: 1.35; margin-top: 2rem; }
+
+      p { margin: 0.85rem 0; }
+      ul, ol { padding-left: 1.4rem; }
+      li { margin: 0.25rem 0; }
+
+      pre {
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+        overflow: auto;
+        line-height: 1.6;
+        border: 1px solid rgba(127,127,127,.22);
+        background: rgba(127,127,127,.08);
+      }
+
+      /* Astro/Shiki code blocks */
+      pre.astro-code {
+        background: rgba(127,127,127,.08) !important;
+        color: inherit !important;
+      }
+      pre.astro-code code { background: transparent !important; }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.95em;
+      }
+
+      /* highlight.js theme overrides
+         - some themes add their own background/padding on .hljs, which conflicts
+           with our <pre> styling (background + padding).
+         - keep our container styling; let hljs only color tokens.
+      */
+      pre code.hljs {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .hljs {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+
+      /* Images */
+      article img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      article a.img-zoom {
+        display: inline-block;
+        cursor: zoom-in;
+      }
+
+      /* Blockquotes */
+      blockquote {
+        margin: 1.2rem 0;
+        padding: 0.25rem 0 0.25rem 1rem;
+        border-left: 4px solid rgba(127,127,127,.35);
+        opacity: .92;
+      }
+      blockquote p { margin: .6rem 0; }
+
+      /* Image modal */
+      .img-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,.72);
+        z-index: 9999;
+        padding: 2rem;
+      }
+      .img-modal.open { display: flex; }
+      .img-modal img {
+        max-width: min(92vw, 1200px);
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        cursor: zoom-out;
+      }
+      .img-modal .hint {
+        position: fixed;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        opacity: .75;
+      }
+
+      hr { border: none; border-top: 1px solid rgba(127,127,127,.25); margin: 2rem 0; }
+
+      .meta { opacity: .72; font-size: .92rem; margin-top: .25rem; }
+      .nav a { margin-right: .75rem; }
+      .nav { margin-bottom: 0.75rem; }
+
+      /* Header / Brand */
+      header.site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 1.2rem 0;
+      }
+      a.brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+      a.brand > span { margin-left: 2px; font-weight: 700; font-size: 1.35rem; }
+      img.brand-mark {
+        width: 2em;
+        height: 2em;
+        flex: 0 0 2em;
+        transform: translateY(0px);
+      }
+
+      @media (max-width: 520px) {
+        /* Slightly larger mark on mobile */
+        img.brand-mark {
+          width: 1.5em;
+          height: 1.5em;
+          flex: 0 0 1.5em;
+          transform: translateY(0px);
+        }
+        a.brand > span { font-size: 1.45rem; }
+      }
+
+      button.icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid rgba(127,127,127,.22);
+        background: rgba(127,127,127,.08);
+        color: inherit;
+        cursor: pointer;
+      }
+      button.icon-btn:hover { background: rgba(127,127,127,.12); }
+      button.icon-btn svg { width: 18px; height: 18px; display: block; }
+
+      /* Code block copy button */
+      pre { position: relative; }
+      button.copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(127,127,127,.22);
+        background: rgba(127,127,127,.10);
+        color: inherit;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 120ms ease;
+      }
+      pre:hover button.copy-btn { opacity: 1; }
+      /* On touch devices, hover doesn't exist; keep it visible. */
+      @media (hover: none) {
+        button.copy-btn { opacity: 1; }
+      }
+      button.copy-btn svg { width: 16px; height: 16px; display:block; }
+
+      /* Theme icon switching */
+      html[data-theme="light"] .icon-moon { display: none; }
+      html[data-theme="dark"] .icon-sun { display: none; }
+
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(127,127,127,.18);
+        opacity: .6;
+        font-size: .85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="TransCrab Home">
+        <img class="brand-mark" src="/assets/transcrab-mark.png" alt="" aria-hidden="true" />
+        <span>TransCrab</span>
+      </a>
+
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+        <!-- Sun (light) / Moon (dark) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M5 19l1.5-1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 14.2A8.5 8.5 0 0 1 9.8 3a7 7 0 1 0 11.2 11.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <slot />
+
+    <div class="img-modal" id="img-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <img id="img-modal-img" alt="" />
+      <div class="hint">Click / ESC to close</div>
+    </div>
+
+    <footer style="display:flex; align-items:center; justify-content:space-between; gap: 1rem;">
+      <div>
+        <a class="footer-link" href="/about/">关于</a>
+      </div>
+
+      <div>
+        Made with ❤️ by <a class="footer-link" href="https://x.com/onevcat" target="_blank" rel="noreferrer">@onevcat</a>.
+      </div>
+
+      <div>
+        <a class="footer-link" href="https://github.com/onevcat/transcrab" target="_blank" rel="noreferrer" aria-label="GitHub repo" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;vertical-align:-3px;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.62 2 12.31c0 4.55 2.865 8.41 6.839 9.77.5.1.682-.22.682-.48 0-.24-.009-.86-.014-1.69-2.782.62-3.369-1.38-3.369-1.38-.454-1.19-1.11-1.5-1.11-1.5-.907-.64.069-.63.069-.63 1.003.07 1.53 1.06 1.53 1.06.892 1.57 2.341 1.12 2.91.86.091-.67.35-1.12.636-1.38-2.221-.26-4.555-1.14-4.555-5.08 0-1.12.39-2.03 1.029-2.75-.103-.26-.446-1.3.098-2.71 0 0 .84-.28 2.75 1.05a9.2 9.2 0 0 1 2.504-.35c.85 0 1.705.12 2.504.35 1.909-1.33 2.748-1.05 2.748-1.05.546 1.41.203 2.45.1 2.71.64.72 1.028 1.63 1.028 2.75 0 3.95-2.338 4.82-4.566 5.07.36.32.68.95.68 1.91 0 1.38-.012 2.49-.012 2.83 0 .26.18.59.688.49A10.02 10.02 0 0 0 22 12.31C22 6.62 17.523 2 12 2Z"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+    <script type="module">
+      import pangu from 'https://esm.sh/pangu@7.2.0';
+      // Add spacing between CJK and half-width chars (per Chinese copywriting guidelines).
+      // Run after render to avoid fighting with markdown.
+      try {
+        pangu.spacingElementByElement(document.body);
+      } catch {}
+
+      // Theme toggle (persisted)
+      const hljsLight = document.getElementById('hljs-light');
+      const hljsDark = document.getElementById('hljs-dark');
+
+      function systemPref() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+
+      function applyTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        // highlight.js theme links
+        if (hljsLight) hljsLight.disabled = theme !== 'light';
+        if (hljsDark) hljsDark.disabled = theme !== 'dark';
+      }
+
+      const saved = localStorage.getItem('theme');
+      applyTheme(saved || systemPref());
+
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const cur = document.documentElement.dataset.theme || systemPref();
+        const next = cur === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', next);
+        applyTheme(next);
+      });
+
+      // Code highlighting (client-side)
+      try {
+        const { default: hljs } = await import('https://esm.sh/highlight.js@11.9.0');
+
+        // If a block declares a language (```swift), respect it.
+        // Otherwise do NOT auto-detect.
+        for (const el of document.querySelectorAll('pre code')) {
+          const cls = el.className || '';
+          const m = cls.match(/language-([a-z0-9_+-]+)/i);
+          if (m) {
+            const lang = m[1].toLowerCase();
+            if (hljs.getLanguage(lang)) {
+              hljs.highlightElement(el);
+              continue;
+            }
+          }
+          el.classList.add('hljs');
+        }
+      } catch {}
+
+      // Code block copy buttons
+      function addCopyButtons(scopeSelector = 'body') {
+        const scope = document.querySelector(scopeSelector) || document.body;
+        for (const pre of scope.querySelectorAll('pre')) {
+          if (pre.querySelector('button.copy-btn')) continue;
+          const code = pre.querySelector('code');
+          if (!code) continue;
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'copy-btn';
+          btn.setAttribute('aria-label', 'Copy code');
+          btn.title = 'Copy';
+          btn.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 9h10v10H9V9Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>`;
+
+          btn.addEventListener('click', async () => {
+            const text = code.innerText || code.textContent || '';
+            try {
+              await navigator.clipboard.writeText(text.replace(/\n+$/,'') + '\n');
+              btn.style.opacity = '1';
+              btn.title = 'Copied';
+              setTimeout(() => (btn.title = 'Copy'), 800);
+            } catch {
+              // fallback
+              const ta = document.createElement('textarea');
+              ta.value = text;
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); } catch {}
+              ta.remove();
+            }
+          });
+
+          pre.appendChild(btn);
+        }
+      }
+
+      // Only add copy buttons on About page for now.
+      if (location.pathname.startsWith('/about')) {
+        addCopyButtons('main, body');
+      }
+
+      // Image zoom modal
+      const modal = document.getElementById('img-modal');
+      const modalImg = document.getElementById('img-modal-img');
+      function closeModal() {
+        modal?.classList.remove('open');
+        modal?.setAttribute('aria-hidden', 'true');
+        if (modalImg) modalImg.src = '';
+      }
+      function openModal(src) {
+        if (!modal || !modalImg) return;
+        modalImg.src = src;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      // Wrap article images with a zoomable anchor
+      for (const img of document.querySelectorAll('article img')) {
+        if (!img.src) continue;
+        const a = document.createElement('a');
+        a.href = img.src;
+        a.className = 'img-zoom';
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(img.src);
+        });
+        img.parentNode?.insertBefore(a, img);
+        a.appendChild(img);
+      }
+
+      modal?.addEventListener('click', closeModal);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    </script>
+  </body>
+</html>
