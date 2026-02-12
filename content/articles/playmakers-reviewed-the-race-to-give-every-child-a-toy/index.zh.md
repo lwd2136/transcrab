@@ -1,8 +1,7 @@
 ---
 title: '“玩具制造者”评述：让每个孩子都拥有玩具的竞赛'
 date: '2026-02-12T12:53:55.189Z'
-sourceUrl: >-
-  https://www.newyorker.com/magazine/2026/02/16/playmakers-the-jewish-entrepreneurs-who-created-the-toy-industry-in-america-michael-kimmel-book-review
+sourceUrl: https://www.newyorker.com/magazine/2026/02/16/playmakers-the-jewish-entrepreneurs-who-created-the-toy-industry-in-america-michael-kimmel-book-review?utm_content=null
 lang: zh
 ---
 
