@@ -1,5 +1,5 @@
 ---
-title: How to Break Up with Your Phone
+title: 如何与手机分手
 date: '2026-02-08T16:16:53.093Z'
 sourceUrl: 'https://www.newyorker.com/humor/shouts-murmurs/how-to-break-up-with-your-phone'
 lang: zh

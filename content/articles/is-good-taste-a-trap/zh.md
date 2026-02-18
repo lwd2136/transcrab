@@ -1,5 +1,5 @@
 ---
-title: Is Good Taste a Trap?
+title: 好品味是陷阱吗？
 date: '2026-02-08T14:32:33.513Z'
 sourceUrl: 'https://www.newyorker.com/culture/open-questions/is-good-taste-a-trap'
 lang: zh
