@@ -1,8 +1,9 @@
-# 研究发现：白发可能是对抗癌症风险的自然防御机制
-
-sourceUrl: https://www.ims.u-tokyo.ac.jp/imsut/en/about/press/page_00079.html
-
-20 October 2025
+---
+title: 研究发现：白发可能是对抗癌症风险的自然防御机制
+date: '2025-10-20T00:00:00.000Z'
+sourceUrl: 'https://www.ims.u-tokyo.ac.jp/imsut/en/about/press/page_00079.html'
+lang: zh
+---
 
 _研究揭示了在DNA损伤下，毛发色素干细胞如何做出命运决定——导致白发或黑色素瘤_
 
