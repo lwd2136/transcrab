@@ -1,6 +1,6 @@
 ---
 title: Ozempic能治愈成瘾吗？
-date: '2026-02-09T06:00:00.000-05:00'
+date: '2026-02-16T06:00:00.000-05:00'
 sourceUrl: 'https://www.newyorker.com/magazine/2026/02/16/can-ozempic-cure-addiction'
 author: Dhruv Khullar
 originalTitle: Can Ozempic Cure Addiction?
