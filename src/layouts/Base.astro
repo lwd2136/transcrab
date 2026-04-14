@@ -1,10 +1,11 @@
 ---
-const { title = 'Alex Notes', description } = Astro.props;
+const { title = 'Alex Notes', description, noindex = false } = Astro.props;
 ---
 <html lang="zh-Hans">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
     <title>{title}</title>
     {description ? <meta name="description" content={description} /> : null}
 

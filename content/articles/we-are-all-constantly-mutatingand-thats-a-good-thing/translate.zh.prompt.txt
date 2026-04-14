@@ -1,0 +1,207 @@
+/no_think 你是一位专业翻译，任务是将《纽约客》的文学和新闻内容翻译成简体中文，仅输出最终结果。请使用精致、智慧、细腻的语言，呈现耐人寻味的情感，保留人名（备注原英文）、缩写和专业术语的准确性，符合中国大陆表达习惯，确保信息准确，分段翻译时参考先前段落保持术语一致。
+翻译步骤：
+1. 翻译成简体中文，确保准确（不输出）。
+2. 调整为流畅表达，体现《纽约客》风格，仅输出此结果。
+
+---
+Genetic research has been complicating the idea of the genome as a determinative blueprint.
+
+April 6, 2026
+
+![Drawing of emanating outlines of a human body.](https://media.newyorker.com/photos/69cbf3f25cdb372b56082011/master/w_2560%2Cc_limit/r49028.gif)
+
+Recent work in genetics is highlighting the importance of mutation as intrinsic to the system by which cells reproduce.Illustration by Evan M. Cohen
+
+As I am writing this, my DNA is changing. And, as you read this, so is yours. People tend to assume that the genes we inherit from our parents are a fixed blueprint for our growth and development, immutable throughout our lives, and that the DNA in each cell of our body is the same as in every other cell. In fact, changes in our DNA, known as mutations, occur from the time we are in the womb until our death—a phenomenon that has become increasingly important in medical science as our understanding of human genomics becomes more sophisticated. In “Beyond Inheritance” (Riverhead), the science journalist Roxanne Khamsi provides a useful guide to this body of research and its far-reaching, sometimes surprising implications. “You are a slightly different genetic version of yourself today from yesterday, and will be different yet again tomorrow,” she writes.
+
+These kinds of mutations are called somatic mutations, derived from the Greek word *soma*, which means “body,” and they are less familiar to most people than inherited mutations are. A famous example of the latter is the hemophilia that affected many of the male descendants of Queen Victoria. Victoria, in common with some of her daughters and granddaughters, was a carrier of a mutation for hemophilia. None of these women manifested the traits of the disease, because the mutation occurred on one of their two X chromosomes, the other of which lacked the mutation. But three generations of male offspring, each having only one X chromosome, inherited the full-blown bleeding disorder.
+
+Although hemophilia is usually a hereditary condition, there are some patients whose relatives do not have the abnormal gene. These people have a somatic mutation. Few of us are unfortunate enough to spontaneously develop such a severe malady, but somatic mutations occur in everyone all the time; we are all collections of errors, mosaics of altered DNA. Each time a cell divides, its DNA is copied, but mistakes inevitably creep in. The adult body, after all, contains some thirty trillion cells, about four million of which are replaced in any given second, and the human genome is made up of six billion letters of DNA. “By some estimates you acquire trillions of new mutations a day,” Khamsi writes. Environmental factors—such as radiation, sunburn, air pollution, and smoking—can increase the rate at which errors in DNA copying happen, but genetic mutations are not rare aberrations; they are intrinsic to the system by which cells reproduce.
+
+Recent advances in sequencing have allowed researchers to analyze the DNA of individual cells and make comparisons with that of other cells in the same organism. This technique has brought to light the extraordinary genetic diversity that exists within all of us. And, because mutations occur constantly, they accumulate as we grow older—to the point where, according to Khamsi, a single blood cell taken from someone who has reached the age of a hundred is likely to contain more than four thousand mutations.
+
+There are some conditions that make our mosaic nature outwardly apparent. At the start of the twentieth century, a German dermatologist named Alfred Blaschko presented data on a hundred and forty patients who had patterns of differently pigmented skin across their bodies. Bands of darker skin often followed similar patterns from patient to patient—a series of V’s along the upper spine, S’s along the abdomen, and an inverted U across each breast. These patterns are still known as the “lines of Blaschko,” and are evidence of what we now recognize as mosaicism. The first person to suggest that they arose from a mutation was a Soviet surgeon, Moisey Zlotnikov, who, in 1945, wrote about a twenty-four-year-old woman from a peasant family who had been mocked as a devil when she was a child because, on her left side, her face and body were covered with bands of variously colored skin: dark brown, light brown, and crimson. The bands stopped precisely at the midline of her body, and the pigmentation of her right side was entirely normal. Zlotnikov wrote that the condition was likely caused by a mutation that had occurred very early in embryonic development, a supposition that was confirmed decades later by genetic analysis.
+
+Other mosaicisms manifest themselves internally. Khamsi cites the example of hemimegalencephaly, a rare disorder in which half of the brain is abnormally enlarged. A paper published in 2006 presented a case of identical twins, only one of whom had the condition—indicating that the mutation was not inherited but, rather, arose during development. Patients with hemimegalencephaly can suffer from unremitting epilepsy and intellectual disabilities, and often need neurosurgery during infancy. By examining brain tissue removed in such surgeries, a team led by researchers at Boston Children’s Hospital has identified mutations in genes that control the growth of neurons, including one affecting an enzyme that is important in cell proliferation. This discovery made a new treatment possible: in preliminary trials, two children with severe epilepsy became seizure-free after receiving a medication that inhibited the enzyme.
+
+Of the various diseases associated with mutations, cancer is surely the most prominent, and it, too, can be thought of as a kind of mosaic disorder, because the mutated DNA of malignant cells contrasts with the healthy genetic makeup of normal cells. In 2014, I treated a woman in her seventies who had developed discomfort in her abdomen and then rapidly became jaundiced. A CT scan revealed a tumor in her pancreas that had spread to her liver. A genetic analysis of the tumor showed several mutations, including one in a gene that controls the production of p53, a key protein. Our normal p53 has been described as “the guardian of the genome,” because it acts to prevent cells with DNA damage from multiplying. If a mutation occurs in p53 itself, that regulation is lost, and further errors proliferate. Between fifty and seventy-five per cent of all pancreatic cancers have this mutation, and it can drive the growth and spread of the tumor.
+
+The patient received chemotherapy, and for several months the tumors in her pancreas and her liver shrank. But soon thereafter the cancer aggressively grew again. Tumors are heterogeneous in their genetic makeup. When a cancer becomes resistant to chemotherapy, analysis of DNA in individual cells shows increased diversity, with certain mutations found in some cells and different mutations in others. Such mutations can accelerate a tumor’s growth, making the cancer harder and harder to treat and sometimes, as in this instance, claiming the patient’s life. A familiar problem in cancer treatment is that, by attacking a heterogeneous mass of mutating cells with chemotherapy and radiation, we impose a kind of artificial Darwinism, in which only the fittest—that is, the most treatment-resistant cells—survive. Khamsi spends a chapter talking about the work of a doctor named Robert Gatenby, who has applied evolutionary models to cancer treatment. In the model he espouses, chemotherapy and radiation may be administered less aggressively, to insure that the population of cells that makes up the tumor maintains its genetic diversity rather than continually mutating new ways to resist treatment.
+
+When I was twenty-eight and training as a hematologist, I developed a high fever, shortness of breath, and a dry cough. I was hospitalized, and a chest X-ray showed that my lungs, instead of being translucent, had a ground-glass appearance that is characteristic of some types of pneumonia. I was soon given a diagnosis of bacterial pneumonia caused by a bacterium called mycoplasma. With treatment, I gradually recovered as my body produced antibodies to deal with the invasive bacterial threat.
+
+The role of antibodies in combatting infection was first described in 1891, by the pioneering German physician Paul Ehrlich, but for a long time it was assumed that our bodies must possess a gene for every single antibody we might one day need to make. However, in the nineteen-seventies, just a couple of years before I contracted pneumonia, this belief began to be overturned, thanks to a series of experiments conducted by a Japanese molecular biologist named Susumu Tonegawa, who later won a Nobel Prize for his work. Tonegawa showed that our adaptive immune system is reliant on genetic mutation.
+
+During an infection, foreign particles, known as antigens, circulate in our bodies. To neutralize them, cells called B lymphocytes produce a wide range of antibodies, Y-shaped proteins that at their tips have sites that capture the antigens. The mechanism that Tonegawa discovered was a kind of mutation that occurs only in lymphocytes. As I lay in the hospital, B lymphocytes released from my bone marrow into my bloodstream were maturing in my spleen and lymph nodes, my DNA shuffling as if it were a deck of cards. The pathogen was new to my system, and sections of my DNA moved around and recombined—an immunological cut-and-paste—to form a new code, one that could produce antibodies capable of fighting mycoplasma. Only a fraction of the human genome is involved in making antibodies, and yet the potential of this section to recombine in novel ways is almost limitless. According to Khamsi, we are capable of producing up to a quintillion different antibodies, each with a unique shape.
+
+Sometimes the mutating DNA yields antibodies that turn against the body’s own tissue. The aberrant action of our mosaic immune system attacking healthy cells is the basis of autoimmune disease. Khamsi cites estimates that five to ten per cent of people in Western countries develop some sort of autoimmune disorder, ranging “from celiac disease to type 1 diabetes to lupus.” Indeed, this happened during my bout with pneumonia. Antibodies that my body developed to fight the mycoplasma bacteria also destroyed my red blood cells, rendering me briefly anemic.
+
+Still, Khamsi’s emphasis on the beneficial aspects of somatic mutations is one of the most striking elements of her book. In one chapter, she describes mutations in which individuals with inherited disorders spontaneously produce cells that mitigate their maladies, a phenomenon that Khamsi likens to an autocorrect function. Research into Duchenne muscular dystrophy has recently furnished an example of this occurrence. Duchenne is an inherited degenerative muscular disease in which a gene mutates in such a way that a protein called dystrophin, vital to stabilizing muscles, becomes defective. As a result, muscles degrade over time from the wear and tear of contracting. Early in life, afflicted children have difficulty walking and often fall; by adolescence, many are in wheelchairs, and patients often die in early adulthood from complications that affect the muscles of the heart and those that control breathing.
+
+And yet researchers examining muscle tissue from children with Duchenne have detected healthy cells capable of making normal dystrophin, evidence of a somatic mutation autocorrecting the inherited one. In some cases, self-corrected cells have appeared early enough in a child’s development to make a meaningful clinical difference. For example, a young man with Duchenne had three uncles with the condition, who all died in early adulthood. Although the young man also experienced the expected progressive weakness associated with this disorder, it mostly affected his left side. An analysis of his DNA showed that about a quarter of the cells on his right side had a mutation that overcame the deleterious Duchenne one.
+
+Autocorrection has also been observed in other inherited genetic disorders, including one called tyrosinemia, in which a mutated enzyme makes it difficult for the body to process certain food proteins. Toxins build up and start to destroy the kidneys and liver. Infants with this condition who fail to receive treatment often die from organ failure. But the livers of some patients have been found to contain clusters of cells that produce an enzyme capable of breaking down the toxins. Their livers have become genetic mosaics.
+
+There have also been reports of instances in which inherited damaging mutations have self-corrected. One such case involved a man in Texas who had the gene associated with Lesch-Nyhan syndrome, a condition that causes severe intellectual disability and self-harm—chewing one’s fingers and lips, head-bashing, eye-poking. But the man had a normal level of intelligence and lacked any compulsion to injure himself. Molecular analysis showed that mutated cells in his body had turned the inherited destructive gene back to normal.
+
+Then, there are boys with a rare immunologic disorder who have been termed “bubble babies,” because they are unable to produce sufficient antibodies or mobilize immune cells, meaning that they have to live inside sterile protective “bubbles” to shield them from microbes. These children die early in life unless their impaired immune system is re-created with bone-marrow transplants. But scientists know of two boys who got better without transplants as they grew older. It was found that, by the time one of the boys was sixteen, half of his immune cells were normal; by the age of twenty, he was free of any medical problems.
+
+Khamsi posits that there is some form of Darwinian competition at play among the cells in patients with autocorrection. The cells that reverted to normal in the boys with bubble-baby syndrome seemed to be replacing the defective cells, suggesting, she writes, “that self-healed cells in patients with genetic disorders might have an existential advantage.” The idea is supported by another case she cites, involving a woman in her late twenties with an inherited skin condition called epidermolysis bullosa, which causes severe blistering that can lead to fatal infections as microbes invade the peeled skin. The woman had a brother who died young from complications of the disease, yet she seemed to be healing. Her hands, though inflamed and covered in red sores, also had several large areas that were smooth and lacked any signs of irritation. The afflicted skin would blister when scientists gently rubbed it, but the healthy patches were completely resistant to such abrasion. Even at an early age, apparently, the patient had a few small, smooth, normal patches of skin; some had stayed the same size, but others had grown and spread. Researchers studied her cells by cultivating them in a laboratory and saw indications of a selective advantage, with healthy skin cells favored over diseased ones.
+
+How did this apparent self-repair come about? One theory is that ultraviolet radiation from the sun may have been the key. Exposure to the sun can induce DNA mutations, which may cause skin cancer—the reason we apply sunblock at the beach. But in this patient the sun might have triggered somatic mutations that rescued her cells. Patients of this kind, Khamsi writes, have effectively undergone “natural gene therapy.”
+
+Powerful technologies now exist that can detect mutated cells in healthy people who show no signs of illness. Although detection reinforces the reality that we are mosaics, the availability of such information raises thorny issues. Finding a mutation could, for example, indicate the potential for cancer, but that wouldn’t necessarily mean that a tumor would emerge, given that the immune system can detect mutated cells and destroy them. Should one begin treatment to prevent the development of a tumor that may never form? And, in instances where the technology may find mutations for which there’s no clear treatment to offer, there is considerable debate about whether testing should even occur. Is it better not to know you are a mosaic?
+
+It is now almost a quarter of a century since the sequencing of the human genome was completed. As momentous as that breakthrough was, Khamsi suggests that it has left many of us with a simplistic and deterministic view of genetics, one in which our destinies are defined by what we inherit from our biological parents. “We need a radical shift in how we conceptualize DNA and the nature of genetic disease,” she writes, one that reflects the fundamentally dynamic and adaptive nature of the system. And mutations are too often assumed to be dangerous, even though some of them are vital to our survival. Furthermore, although somatic mutations are not heritable—unless they occur in reproductive cells—mutation is a factor that links the small changes within our bodies to the larger story of the evolution of species. In each case, mutation provides a way for life to stumble upon solutions. ♦
+
+*   Sylvia Frumkin checked herself in to the Creedmoor Psychiatric Center. From there, her fate was [out of her control](https://www.newyorker.com/magazine/1981/05/25/the-patient).
+    
+
+[![](https://media.newyorker.com/photos/59e12fa4b94d05552848a36d/1:1/w_270%2Cc_limit/groopman-jerome-01.png)](https://www.newyorker.com/contributors/jerome-groopman)
+
+Read More
+
+The Lede
+
+[
+
+What Happens When a Whale Is Born?
+
+](https://www.newyorker.com/culture/the-lede/what-happens-when-a-whale-is-born#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+Researchers happened on the birth of a sperm-whale calf—which, they found, is a complex family endeavor.
+
+By Elizabeth Kolbert
+
+Elements
+
+[
+
+How to Poison an Ocean
+
+](https://www.newyorker.com/news/annals-of-a-warming-planet/how-to-poison-an-ocean#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+Trump envisions a new era of offshore oil drilling. Scientists know all too well how that story ends.
+
+By Jeffrey Marlow
+
+Books
+
+[
+
+How to Measure the Good Life
+
+](https://www.newyorker.com/magazine/2026/04/06/the-meaning-of-your-life-arthur-c-brooks-book-review#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+In a new book, the conservative pundit Arthur C. Brooks offers tips to “young strivers” on maximizing their daily meaning quotient.
+
+By Becca Rothfeld
+
+Brave New World Dept.
+
+[
+
+Why Are People Injecting Themselves with Peptides?
+
+](https://www.newyorker.com/magazine/2026/04/13/why-are-people-injecting-themselves-with-peptides#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+Health and wellness influencers are hawking unapproved treatments on the gray market. The future of the F.D.A.—and the health of consumers—is at stake.
+
+By Dhruv Khullar
+
+Annals of Technology
+
+[
+
+Does A.I. Need a Constitution?
+
+](https://www.newyorker.com/magazine/2026/03/30/does-ai-need-a-constitution#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+A new set of precepts is meant to make the chatbot Claude wise, decent, and safe. It also marks a striking transfer of public responsibility from constitutional government to private tech firms.
+
+By Jill Lepore
+
+The Lede
+
+[
+
+The Scandal of the Sharenting Economy
+
+](https://www.newyorker.com/culture/the-lede/the-scandal-of-the-sharenting-economy#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+As kidfluencers come of age, some may find the law an imperfect means of restitution for what was lost and broken in their childhoods.
+
+By Jessica Winter
+
+Under Review
+
+[
+
+“Judy Blume: A Life” and the Problem of Biography
+
+](https://www.newyorker.com/books/under-review/judy-blume-a-life-and-the-problem-of-biography#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+A new book about the children’s author is conscientious, respectful—and, like any good biography, dedicated to recovering vivid, occasionally unsettling particulars.
+
+By Katy Waldman
+
+Letter from Europe
+
+[
+
+How the Guillotine Got Axed
+
+](https://www.newyorker.com/news/letter-from-europe/how-the-guillotine-got-axed#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+In the U.S., capital punishment is resurgent. What lessons can we glean from France’s successful campaign to abolish it?
+
+By Lauren Collins
+
+Under Review
+
+[
+
+Liza Minnelli’s Uncharacteristic Pivot to Self-Disclosure
+
+](https://www.newyorker.com/books/under-review/liza-minnellis-uncharacteristic-pivot-to-self-disclosure#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+In a new memoir, Minnelli discusses her life more candidly than she has before. But her truest self has always emerged on stage.
+
+By Matt Weinstock
+
+Infinite Scroll
+
+[
+
+The Age-Old Urge to Destroy Technology
+
+](https://www.newyorker.com/culture/infinite-scroll/the-age-old-urge-to-destroy-technology#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+The book “Techno-Negative” reminds us that resistance to new inventions has existed in some form across millennia.
+
+By Kyle Chayka
+
+The Lede
+
+[
+
+What the Verdict Against Meta and Google Says About the Way We Live Now
+
+](https://www.newyorker.com/news/the-lede/what-the-verdict-against-meta-and-google-says-about-the-way-we-live-now#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+The finding of a California jury represents the opening legal salvo in a fight against one of the central anxieties of our time.
+
+By Jeannie Suk Gersen
+
+Books
+
+[
+
+Can Psychoanalysis Help You Get the Life You Want?
+
+](https://www.newyorker.com/magazine/2026/03/23/the-life-you-want-adam-phillips-book-review#intcid=_the-new-yorker-article-bottom-recirc_087f6380-ea42-4c1a-8dd3-62330ea8b7d1_roberta-similarity1)
+
+In a new book, Adam Phillips wages a playful war on the strictures of traditional talk therapy.
+
+By Katy Waldman
+

@@ -104,7 +104,10 @@ let titleOverride = null;
   }
 }
 
+// Preserve extra metadata from source.md frontmatter (e.g. author, notice, noindex)
+// while overriding title/lang.
 const outFrontmatter = {
+  ...fm,
   title: titleOverride || fm.title || slug,
   date: fm.date,
   sourceUrl: fm.sourceUrl,

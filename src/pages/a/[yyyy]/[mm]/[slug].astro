@@ -14,16 +14,20 @@ const article = await getArticle(slug);
 if (!article) {
   return new Response('Not found', { status: 404 });
 }
-const { html, title, sourceUrl, dateDisplay } = article;
+const { html, title, sourceUrl, dateDisplay, author, originalTitle, notice } = article;
 ---
 
-<Base title={title}>
+<Base title={title} noindex={article.noindex}>
   <div class="nav"><a href="/">← 返回</a></div>
   <h1>{title}</h1>
   <div class="meta">
     {dateDisplay ? <span>{dateDisplay}</span> : null}
+    {author ? <span> · {author}</span> : null}
     {sourceUrl ? <span> · <a href={sourceUrl} target="_blank" rel="noreferrer">原文链接</a></span> : null}
+    {originalTitle ? <span> · <span title="Original title">{originalTitle}</span></span> : null}
   </div>
+
+  {notice ? <blockquote><p>{notice}</p></blockquote> : null}
 
   <article set:html={html} />
 </Base>

@@ -42,6 +42,7 @@ if (args.length === 0 || args.includes('-h') || args.includes('--help')) {
 
 const url = args[0];
 const lang = argValue(args, '--lang', 'zh');
+const via = argValue(args, '--via', process.env.TRANSCRAB_FETCH_VIA || 'direct');
 
 await fs.mkdir(CONTENT_ROOT, { recursive: true });
 
@@ -76,36 +77,76 @@ if (existing) {
   process.exit(0);
 }
 
-const html = await fetchHtml(url);
-const paywall = detectPaywall(html, url);
-if (false && paywall.blocked) {
-  console.error(
-    JSON.stringify(
-      {
-        ok: false,
-        code: 'PAYWALL_DETECTED',
-        message: 'Paywall detected. Task aborted.',
-        reason: paywall.reason,
-        sourceUrl: normalizedSourceUrl,
-      },
-      null,
-      2,
-    ),
-  );
-  process.exit(3);
+let title = '';
+let markdown = '';
+
+if (via === 'puremd') {
+  const pure = await fetchPureMd(url);
+  const parsed = matter(pure);
+  title = String(parsed.data?.title || '').trim();
+  markdown = cleanPureMdMarkdown(String(parsed.content || ''));
+} else {
+  const html = await fetchHtml(url);
+  const paywall = detectPaywall(html, url);
+
+  if (false && paywall.blocked) {
+    console.error(
+      JSON.stringify(
+        {
+          ok: false,
+          code: 'PAYWALL_DETECTED',
+          message: 'Paywall detected. Task aborted.',
+          reason: paywall.reason,
+          sourceUrl: normalizedSourceUrl,
+        },
+        null,
+        2,
+      ),
+    );
+    process.exit(3);
+  }
+
+  const r = await htmlToMarkdown(html, url);
+  title = r.title;
+  markdown = r.markdown;
 }
 
-const { title, markdown } = await htmlToMarkdown(html, url);
+const paywall = { blocked: false };
+
+// title/markdown already set above
 const baseSlug = makeSlug(title || url);
 const { slug, dir } = await makeUniqueSlugDir(baseSlug);
 
 const now = new Date();
-const date = now.toISOString();
+let date = now.toISOString();
+
+// Best-effort: fetch HTML quickly to extract canonical publish time + author.
+// If it fails (blocked/network), we fall back to URL-derived date or now.
+let author = null;
+let originalTitle = title || null;
+try {
+  const html2 = await fetchHtml(url, { timeoutMs: 15000 });
+  const meta2 = extractArticleMeta(html2);
+  if (meta2.datePublished) date = meta2.datePublished;
+  if (meta2.author) author = meta2.author;
+  if (meta2.headline) originalTitle = meta2.headline;
+} catch {}
+
+if (!date || !Number.isFinite(Date.parse(date))) {
+  const d2 = dateFromUrl(normalizedSourceUrl);
+  if (d2) date = d2;
+}
+
 
 const sourceFrontmatter = {
   title: title || slug,
   date,
   sourceUrl: normalizedSourceUrl,
+  author,
+  originalTitle,
+  noindex: true,
+  // IMPORTANT: if you publish this, ensure you have permission.
+  // Put the required notice in the translated page frontmatter.
   lang: 'source',
 };
 const sourceMd = matter.stringify(markdown, sourceFrontmatter);
@@ -116,7 +157,10 @@ const meta = {
   title: title || slug,
   date,
   sourceUrl: normalizedSourceUrl,
+  author,
+  originalTitle,
   targetLang: lang,
+  fetchVia: via,
 };
 await fs.writeFile(path.join(dir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n', 'utf-8');
 
@@ -127,8 +171,9 @@ await fs.writeFile(promptPath, prompt + '\n', 'utf-8');
 // Print a machine-readable summary for wrappers.
 // NOTE: yyyy/mm are derived from `date` (UTC), and match the site's canonical route:
 //   /a/<yyyy>/<mm>/<slug>/
-const yyyy = String(now.getUTCFullYear());
-const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
+const dForPath = new Date(Date.parse(date) || now.getTime());
+const yyyy = String(dForPath.getUTCFullYear());
+const mm = String(dForPath.getUTCMonth() + 1).padStart(2, '0');
 const articlePath = `/a/${yyyy}/${mm}/${slug}/`;
 
 console.log(
@@ -144,7 +189,8 @@ console.log(
       mm,
       articlePath,
       nextSteps: [
-        `Translate: read ${promptPath} and translate to ${lang} (H1 title + blank line + body)`,
+        `Translate: read ${promptPath} and translate to ${lang} (H1 title + blank line + body). For copyrighted sources, only proceed if you have permission.`,
+        `If you need a pure.md fetch: ./scripts/run-crab-puremd.sh ${normalizedSourceUrl} --lang ${lang}`,
         `Apply: node scripts/apply-translation.mjs ${slug} --lang ${lang} --in /path/to/translated.${lang}.md`,
         'Commit: git add content/articles/<slug>/ && git commit && git push',
         'Verify: wait for deploy and ensure the final URL returns HTTP 200',
@@ -160,13 +206,15 @@ process.exit(0);
 
 // ----------------
 
-async function fetchHtml(url) {
+async function fetchHtml(url, opts = {}) {
   const proxyUrl = process.env.TRANSCRAB_PROXY;
   const dispatcher = proxyUrl ? new ProxyAgent(proxyUrl) : undefined;
+  const timeoutMs = Number(opts.timeoutMs || 0) > 0 ? Number(opts.timeoutMs) : 60000;
 
   const res = await fetch(url, {
     redirect: 'follow',
     dispatcher,
+    signal: AbortSignal.timeout(timeoutMs),
     headers: {
       'user-agent':
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
@@ -664,6 +712,119 @@ async function findExistingArticleBySourceUrl(normalizedUrl) {
     }
   }
 
+  return null;
+}
+
+// --- pure.md fetch (HTML -> Markdown proxy) ---
+async function fetchPureMd(url) {
+  const target = `https://pure.md/${url}`;
+  const res = await fetch(target, {
+    redirect: 'follow',
+    headers: {
+      'user-agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
+      accept: 'text/markdown,text/plain;q=0.9,*/*;q=0.1',
+    },
+  });
+  if (!res.ok) throw new Error(`pure.md fetch failed: ${res.status} ${res.statusText}`);
+  return await res.text();
+}
+
+function cleanPureMdMarkdown(md) {
+  let s = String(md || '').replace(/\r\n/g, '\n');
+
+  // Drop a leading H1 title if present (we already have frontmatter title).
+  {
+    const lines = s.split('\n');
+    let i = 0;
+    while (i < lines.length && !lines[i].trim()) i++;
+    if ((lines[i] || '').startsWith('# ')) {
+      i++;
+      while (i < lines.length && !lines[i].trim()) i++;
+      s = lines.slice(i).join('\n');
+    }
+  }
+
+  // Line-level cleanup (more robust than regex when the upstream changes formatting)
+  let lines = s.split('\n');
+  lines = lines.filter((line) => {
+    const t = line.trim();
+    if (!t) return true;
+    const low = t.toLowerCase();
+    if (low === 'save this story') return false;
+    if (low === 'advertisement') return false;
+    if (low === 'subscribe') return false;
+    return true;
+  });
+  s = lines.join('\n');
+
+  // Collapse excessive blank lines
+  s = s.replace(/\n{3,}/g, '\n\n').trim();
+
+  return s + '\n';
+}
+
+// --- Extract canonical article metadata (best-effort) ---
+function extractArticleMeta(html) {
+  const out = { headline: null, datePublished: null, author: null };
+  const s = String(html || '');
+
+  // JSON-LD: NewsArticle / Article
+  const blocks = [...s.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)]
+    .map((m) => (m[1] || '').trim())
+    .filter(Boolean);
+
+  const visit = (obj) => {
+    if (!obj || typeof obj !== 'object') return;
+    if (Array.isArray(obj)) {
+      for (const x of obj) visit(x);
+      return;
+    }
+
+    const t = obj['@type'];
+    if (t === 'NewsArticle' || t === 'Article' || t === 'ReportageNewsArticle') {
+      if (!out.headline && typeof obj.headline === 'string') out.headline = obj.headline;
+      if (!out.datePublished && typeof obj.datePublished === 'string') out.datePublished = obj.datePublished;
+      if (!out.author) {
+        const a = obj.author;
+        if (typeof a === 'string') out.author = a;
+        else if (Array.isArray(a) && a[0]?.name) out.author = a[0].name;
+        else if (a?.name) out.author = a.name;
+      }
+    }
+
+    // Some JSON-LD uses @graph
+    if (obj['@graph']) visit(obj['@graph']);
+  };
+
+  for (const raw of blocks) {
+    try {
+      const data = JSON.parse(raw);
+      visit(data);
+    } catch {}
+  }
+
+  // Fallback meta tags
+  if (!out.author) {
+    const m = s.match(/<meta[^>]+name="author"[^>]+content="([^"]+)"/i);
+    if (m) out.author = m[1];
+  }
+  if (!out.datePublished) {
+    const m = s.match(/<meta[^>]+property="article:published_time"[^>]+content="([^"]+)"/i);
+    if (m) out.datePublished = m[1];
+  }
+
+  return out;
+}
+
+function dateFromUrl(u) {
+  const s = String(u || '');
+  // /YYYY/MM/DD/
+  let m = s.match(/\b(20\d{2})\/(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\b/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}T00:00:00.000Z`;
+  // /YYYY-MM-DD/
+  m = s.match(/\b(20\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}T00:00:00.000Z`;
   return null;
 }
 

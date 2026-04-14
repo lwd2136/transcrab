@@ -16,4 +16,6 @@ set -euo pipefail
 #   - Then write/apply the translation:
 #       node scripts/apply-translation.mjs <slug> --lang <lang> --in <file>
 
-node ./scripts/add-url.mjs "$@"
+# Default to pure.md fetch (more robust for paywalls/geo/antibot).
+# Override with: TRANSCRAB_FETCH_VIA=direct
+TRANSCRAB_FETCH_VIA=${TRANSCRAB_FETCH_VIA:-puremd} node ./scripts/add-url.mjs "$@"

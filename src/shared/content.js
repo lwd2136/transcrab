@@ -62,6 +62,7 @@ export async function listArticles() {
         date,
         dateDisplay: dateDisplay(date),
         sourceUrl: fm.data.sourceUrl ?? null,
+        noindex: Boolean(fm.data.noindex ?? false),
       });
     } catch {
       // ignore
@@ -93,6 +94,10 @@ export async function getArticle(slug) {
       date,
       dateDisplay: dateDisplay(date),
       sourceUrl: fm.data.sourceUrl ?? null,
+      author: fm.data.author ?? null,
+      originalTitle: fm.data.originalTitle ?? null,
+      notice: fm.data.notice ?? null,
+      noindex: Boolean(fm.data.noindex ?? false),
       html,
     };
   } catch {
