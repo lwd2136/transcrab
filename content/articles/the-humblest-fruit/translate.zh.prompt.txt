@@ -1,0 +1,200 @@
+/no_think 你是一位专业翻译，任务是将《纽约客》的文学和新闻内容翻译成简体中文，仅输出最终结果。请使用精致、智慧、细腻的语言，呈现耐人寻味的情感，保留人名（备注原英文）、缩写和专业术语的准确性，符合中国大陆表达习惯，确保信息准确，分段翻译时参考先前段落保持术语一致。
+翻译步骤：
+1. 翻译成简体中文，确保准确（不输出）。
+2. 调整为流畅表达，体现《纽约客》风格，仅输出此结果。
+
+---
+How an expensive delicacy from the tropics became a staple part of American life.
+
+September 24, 1973
+
+![The Humblest Fruit](https://media.newyorker.com/photos/68b0b4a126ab768b615fe38c/master/w_2560%2Cc_limit/1973_10_01_Roueche.jpg)
+
+Illustration by Tom Funk
+
+My grandfather was a country doctor, and in his last years, when I knew him, he liked to talk about his experiences in practice. One story that I remember had to do with a call to a backwoods farmhouse to deliver a baby. It was late afternoon when he got there, and by the time the baby had been born and bathed and swaddled it was night, and the farmer offered to fix him some supper. My grandfather said he thanked him but declined.
+
+“That’s right,” he told me. “But there were some bananas in a bowl on the kitchen table, and I said if he didn’t mind I’d just have one of them.”
+
+“A banana!” I said. I was eight or nine years old, and always ready to eat. “That’s all you wanted for supper, Grandpa—just an old banana?”
+
+“No, sir,” he said. “It wasn’t that. I was good and hungry. But I was afraid to eat in that house. I was sure it was crawling with germs. It was filthy. It was the dirtiest house I’ve ever had to set foot in. Those people were worse than hogs. But now I’ll tell you a secret. Bananas are a remarkable fruit. I mean, they are a whole lot more than just good eating. And one of the remarkable things about them is this: They’re *safe*—there isn’t anything cleaner than a banana sealed inside its skin. Just be sure that you peel it yourself.”
+
+Enthusiasm for the banana was a characteristic of my grandfather’s generation. His was the first generation in America to become familiarly acquainted with the banana, and it was as much appreciated then as it is taken for granted now. To those who came only a little earlier—the generation that grew up just before the Civil War—the banana, if it was known at all, was a fruit (or was it a vegetable?) as rare as the pomegranate. Practically all those who did know it then were travellers in the hot and steamy lowlands where it most abundantly grows—in South and Central America, in the Caribbean, in West Africa, in Southeast Asia. One of these travellers was the New Orleans-born concert pianist and composer Louis Moreau Gottschalk. Gottschalk, whose compositions include a tribute called “Le Bananier,” became attached to the banana during a long sojourn in Cuba in the eighteen-fifties, and he often mentions it in his autobiographical “Notes of a Pianist”: “. . . giving a concert wherever I found a piano, sleeping wherever night overtook me—on the grass of the savanna, or under the palm-leaf roof of a *veguero* with whom I partook of a tortilla, coffee, and banana.” A *veguero*, he adds, is a tobacco grower and “king of the savanna, who can live the whole year on exquisite bananas, on savory cocoa . . . and the best tobacco in the world.” It is probable that Gottschalk had some slight acquaintance with the banana before he discovered it in Cuba. Bananas were now and then seen in New Orleans markets in the eighteen-thirties and forties, when he was growing up there. Traders sailing from Honduras or Costa Rica would sometimes pile a few bunches on deck and hope to make New Orleans before they ripened and spoiled. The other important American ports—Philadelphia, New York, Boston—were generally considered too distant by even the fastest clipper for even the wildest gamble. As always, however, there was an occasional gambler. The annals of the trade record that in May, 1843, a New York commission merchant named John Pearsall imported three hundred bunches of the russet variety known as Cuban Red, and sold the lot at a price of twenty-five cents a “finger,” or single banana. That, since Pearsall was a commission merchant, seems to have been merely the wholesale price. Moreover, twenty-five cents had the value then of over two dollars today. The record also notes that some years later a shipment of three thousand bunches of Cuban Reds reached Pearsall in a state too ripe to be sold at any price, and he declared himself a bankrupt. The banana remained an expensive delicacy through most of the nineteenth century. It was one of the curiosities—along with [the telephone](https://www.newyorker.com/magazine/1998/04/13/sound-and-silence)—at the Centennial Exposition in Philadelphia in 1876. There bananas were individually wrapped in tinfoil and priced at ten cents (about fifty cents today). As late as the eighteen-nineties, as the Maine novelist Mary Ellen Chase recalls in her memoir of her childhood, “A Goodly Heritage,” the banana was still for many Americans a novelty and a treat. She particularly remembers the arrival of the Boston supply schooner at her native Blue Hill Bay one autumn afternoon. “Most remarkable of all her goods in those relatively fruitless days were crates of oranges, two kegs of white grapes, packed in sawdust, and—most wonderful to relate!—a huge bunch of bananas in a long, slatted long, frame,” Miss Chase writes. “It may seem impossible today to wax romantic over a bunch of bananas! But in that huge frame standing on *The Golden Hunter’s* deck behind those masses of brown, tropical grass, were concealed far more than bananas, delectable and desirable as they were in themselves. Therein among those unripe, green protuberances . . . lay a prestige and a pre-eminence among our fellows which in all the years that have passed I have never been able to recapture. My father had bought the bananas as a suspense . . . since the price of them in the village store, at least of enough to supply our family, was prohibitive . . . \[and\] from that day to this I have never been able to regard a banana with the supercilious stare of the cultivated mind and eye. The munificence and magnanimity of my father, the opulence and distinction of us as a family, remain, always to be evoked by any chance sight of that humblest and ugliest of fruits.”
+
+The ugliness (to Miss Chase’s otherwise admiring eye) of the banana must be laid to the genetic hand of God, but its humbleness is the work of the United Fruit Company. It was the United Fruit Company that first achieved a constant, year-round flow of high-quality bananas from Latin America to the North American market, thus transforming the banana almost overnight from a luxury fruit into something approaching a staple. This work was begun in Boston in 1899 with the merger of four variously preoccupied enterprises—the Boston Fruit Company, the Tropical Trading & Transport Company, Ltd., the Colombian Land Company, and the Snyder Banana Company—into a wholly banana-minded United Fruit Company, and it was (for all practical purposes) accomplished with the launching of the S.S. Venus, the first refrigerated produce boat in history, in 1903. In that year, the first of certain record, United Fruit imported from its Latin-American holdings some one and a quarter billion pounds of bananas.
+
+At least two-thirds of the ten billion or more pounds of bananas now marketed around the world every year (including practically all those sold in the United States, Canada, and Western Europe) are grown in the subtropical crescent of mainland and island known in the trade as Middle America. Nevertheless, although there have been chauvinistic attempts to prove it so, the banana is not a native of the Western Hemisphere. It came to the West—like Christianity, the written word, and smallpox—as a gift from the East. Most horticultural historians are satisfied that the banana—the large, seedless, usually yellow banana of commerce—was first developed, uncounted millennia ago, in the rain forests of Southeast Asia. Edgar Anderson, Engelmann Professor of Botany at Washington University, in St. Louis, noted in a study of domesticated plants, “The cultivated forms \[of the banana\] certainly originated in cultivation, some of them as hybrids, and the Malay Peninsula seems to be the chief center of origin.” The Roman encyclopedist Pliny (23-79 A.D.) appears to have been the first writer to recognizably describe the banana, and in his catch-all “Historia Naturalis” he ascribes to it an Indian origin. “There is \[a\] tree of India . . . remarkable for the size and sweetness of its fruit, upon which the sages of India live,” he reports. “The leaf of this tree resembles in shape the wing of a bird, being three cubits \[about five feet\] in length and two in breadth. It puts forth its fruit from the bark . . . a single one containing sufficient to satisfy four persons.” Pliny’s depiction has the further distinction of having given the banana its scientific name. The banana is a member of the botanical genus *Musa* (possibly from *mûz*, the Arabic for banana), and when the eighteenth-century Swedish taxonomist Linnaeus came to classify the common cultivated species, he remembered Pliny’s allusion to the sparing diet of the Indian intellectual and named it *Musa* *sapientum*. *Musa* seems to have brought out the romantic (or the facetious) in Linnaeus. There is a medieval legend that the banana, not the apple, was the fruit with which Eve tempted Adam, and the name that Linnaeus gave to the species of *Musa* commonly known as the plantain commemorates this pretty story. He called it *Musa paradisiaca*. The earliest clearly first-hand observation of *M. sapientum* was set down by a Chinese scholar named Yang Fu in the second century. In a compilation called “Record of Strange Things,” he wrote: “*Pa-chiao* has leaves as large as mats. One stem bears several tens of fruits. The fruit has a reddish skin like the color of fire, and when peeled the inside is dark. The pulp is edible and very sweet, like honey or sugar. Four or five of these fruits are enough for a meal. After eating, the flavor lingers on among the teeth.”
+
+The toothsome flavor of the banana was probably known only to the peoples of the East until well into the Christian era. Arab traders are usually credited with the introduction of the plant into the gardens of the Middle East and Africa, but, considering the dry lands through which it had to travel, its passage must have been a slow one. It is probable, however, that it had completed the first leg of its journey by around the time of Muhammad, for there is good reason to believe that the legend that places the banana in the Garden of Eden is a Muslim invention. At any rate, the Arab historian Masudi, who died in 956, speaks in his cultural history of the world, “Muruj al-Dhanab,” of a traditional Egyptian confection composed of almonds, honey, and bananas. (The bananas of the Middle East were once of some renown, and one of those who testified to their quality was Benjamin Disraeli. In a letter written to his sister from Cairo in 1831, when he was twenty-seven, he exclaimed, “Oh the delicious fruits that we have here and in Syria! Orange gardens miles in extent, citrons, limes, pomegranates; but the most delicious thing in the world is a banana, which is richer than a pineapple.”) It was also the Arabs who introduced the banana—along with the slave trade and the itch for ivory—into the immensity of humid black Africa. It immediately flourished there. The Portuguese explorers of the middle fifteenth century found it established as a staple food everywhere along the Guinea Coas—in Gambia, in Sierra Leone, in Liberia. It was there, moreover, that the banana found its almost universal name. The word “banana” derives, by way of the Portuguese, from a variety of West African languages, in which the fruit was variously known as *banna*, *bana*, *gbana*, *abana*, *funana*, and *banane*.
+
+The ultimate westward passage of the banana was accomplished in no more than a generation. Sometime in the late fifteenth century, it was carried by the appreciative Portuguese from the Guinea Coast to the Canary Islands. The Spaniards found the banana under intensive cultivation there when they added Tenerife, the largest of the islands, to their infant empire in 1496. (Banana cultivation in the Canaries, though dependent upon irrigation, has never slackened, and its plantations are ranked today among the most productive in the world.) The banana sailed across the Atlantic with the Spanish conquest, and, like the first conquistadors, it first established itself in the larger islands of the Caribbean. The circumstances of its importation into America were recorded by a contemporary witness, the Spanish historian Gonzales Fernández de Oviedo y Valdés, who began his career as supervisor of gold smeltings at Santo Domingo in 1514. “This special kind \[of fruit\],” Oviedo noted in his four-volume “Histaria General y Natural de las Indias, Islas y Tierra-Firme del Mar Oceano,” “was brought from the Island of Gran Canaria in the year 1516 by the Reverend Father Fnar Tomas de Berlanga, of the Order of Predicadores \[later Bishop of Panama\], to this city of Santo Domingo, whence they spread to the other settlements of this island and to all other islands peopled by Christians. And they have even been carried to the mainland, and in every part they have flourished.”
+
+The nature of the banana is as singular as its history and its shape. Its propagation is unlike that of any other fruit. The banana plant is not a tree but a tree-size herb, with a palmlike crown and a fleshy green stalk that can spring from the ground and grow to a height of twenty or thirty, or even forty, feet in little more than a year. Its visible stalk is not a stem but a tubular convolution of its unfurling giant leaves, and its apparent root is not a root but a rhizome. This is a shallow, creeping, tuberous stem that produces a number of progenitive buds, like the eyes of a potato. Much as the potato plant grows from the sprouting seed potato, the banana is grown from planted sections of rhizome. A few weeks after planting, a leaf stalk sprouts from the reproductive bud and begins its laborious simulation of a tree. A truer stalk then appears in the form of a shoot that pushes slowly up through the hollow center of the spiralling shaft of leaves. The shoot emerges at the crown of the plant as a flower bud, lengthens, droops, and slowly opens into a dozen cascading clusters of tiny blossoms. It is from these blossoms that the banana’s cornucopia of fruit develops. Each female blossom becomes a single banana, or “finger;” each cluster of from ten to twenty upthrusting fingers becomes a “hand;” and the whole bouquet becomes the massive bunch, or “stem,” of bananas. The botanically ordained purpose of the banana plant is to produce a bunch of bananas, and when that end is achieved its productive life is over. The cultivated plant is then cut down and a successor shoot takes over.
+
+Bananas, like many other kinds of fruit, are always picked in their green, or unripened, state. This is not, however, for reasons of marketing convenience, as is the case with most other fruits and vegetables. Gourmet hearsay to the contrary, a banana is not at its best when freshly picked from the tree. A tree-ripened banana lacks the melting sweetness and velvety texture for which the store-bought banana is relished. Bananas open properly only after picking. They must, moreover, be picked at a certain stage of maturity. There is a period, usually set at about three weeks, during which they must be cut in order to ripen satisfactorily. The distance the banana must travel to market determines the moment of cutting. Bananas consigned to the most distant markets are cut on the earliest possible days, for a day, even a few hours, can be important in their fragile market life. Few fruits (the strawberry, perhaps, and the raspberry) are more sensitive than the banana to the destructiveness of time.
+
+A picked banana begins at once to ripen. The process cannot be halted without damage to the fruit, but it can be tactfully retarded. In this respect, the banana might seem to resemble the apple. Apples picked for winter storage can be kept for months in a controlled environment of low temperature (just above freezing) and high humidity (around eighty-five per cent), which produces a physiological stasis somewhat like hibernation. But the banana is less accommodating to commerce. A cut banana has a “twilight” life under ideal storage conditions of about six weeks. It must then be allowed (or encouraged) to open fully, or be discarded. The storage conditions it requires include sufficient cooling (or heating) to achieve and maintain a constant temperature in the pulp of the fruit of about fifty-six degrees, a humidity of at least ninety per cent, and a carefully regulated ventilation system, and these are standard on all banana ships, trains, and trucks. The twilight life of the banana is a curious imitation of life. In his “The Banana: Its History, Cultivation and Place Among Staple Foods,” Philip Keep Reynolds, the classic biographer of the fruit, has noted, “The necessity for infinite care in handling a bunch of bananas will be: appreciated when it is realized that this fruit, when harvested, is practically a living organism drawing sustenance from its stalk, with sap flowing and tissues changing; that in the ripening process it generates heat within itself; that a few degrees of temperature above or below normal may stimulate too rapid ripening, or cause checked vitality and chill.” The demanding nature of the twilight life of the banana was examined in more detail by Harry W. von Loesecke, a United States Department of Agriculture research chemist, in a monograph entitled “Bananas: Chemistry, Physiology, Technology.” “The problem of respiration is one of considerable complexity,” he observed. “The fruit continues to respire when removed from the tree, evolving carbon dioxide along with ethylene and probably small amounts of volatile esters. Any condition that radically changes this respiratory activity and thereby alters the normal metabolism of the fruit, will have detrimental effects upon Its final quality. . . . In general, the trend of respiration is an initial steady, relatively slow rate for green, unripe fruit, followed by a rapid rise during the early ripening period. The ripe and overripe fruit show a fairly steady, but usually slowly rising rate until the peel becomes completely brown.” It is this stubborn, lifelike respiratory vigor of the cut banana that complicates the immediate, shipboard inhibition of the ripening process. More is required than merely removing the harvested fruit from tropic heat to storage in a properly ordered environment. The several gases emitted by the respiring banana must be expelled from the shipboard storage bays, for they speed up the ripening process. The proper environment of cool, moist, circulating air must be established in the storage bays and then meticulously maintained. Refrigeration must be so pitched that it quickly reduces the field heat of the banana and also counteracts the waves of metabolic heat produced by the living, breathing banana. This heat, in the early stages of cooling, can be of some intensity. Reynolds had estimated that a sixty-thousand-pound cargo of bananas will generate about eight million British thermal units per hour. That is about the equivalent in heat production of burning a third of a ton of coal.
+
+Bananas are ripened commercially in much the same way that they are stored for transportation. There is the same control of temperature and humidity, and the same provision of circulating air. The differences are chiefly that the temperature of the pulp is gently raised from the numbing fifty-six degrees to a more animating fifty-eight to sixty-eight, and the natural emanations of the banana are retained and circulated through the ripening room. The most important of the gases that assist ripening is ethylene. Ethylene is a versatile unsaturated hydrocarbon that occurs in illuminating gas and was once widely used as a general anesthetic in surgery. Its capacity for stimulating that ripening process in bananas (and also in such other produce as tomatoes, apples, and pineapples) is another aspect of its powerful personality. The discovery of ethylene as a natural product of banana metabolism and the demonstration of its role as an autocatalyst in ripening occurred in the late nineteen-twenties, and it was subsequently found that a more precise control of the process could be gained by the use of additional ethylene. A brief exposure of the fruit to ethylene (in a ratio of one cubic foot of gas to every thousand cubic feet of roon1 space) at the start of the ripening process is now standard practice in the trade.
+
+Five commercial-ripening schedules, ranging from four to eight days, are in common use. The shorter the schedule the greater the heat required to bring the fruit to the wanted state of maturity, and the more leisurely schedules are usually thought to produce the best fruit. Bananas are not brought to actual eating ripeness in the ripening room. That would limit their shelf life too severely. They are ripened to the edge of a color state—called No. 4 in the trade—in which the original grassy greenness of the peel has been replaced by a preponderance of yellow. The fruit is then quickly moved to market and continues its ripening on the shelf. At this stage, a banana has about a week of more or less edible life. The lingering green of No. 4 becomes (in No. 5) a mere touch of green at the tips, and that gives way (in No. 6) to an entirely yellow skin. This is followed by the telltale freckling of the final stage (No. 7) of generally acceptable ripeness. Most people (forty per cent) prefer bananas in the green-tip stage, according to a United Fruit Company survey. The second-largest group in the study (thirty-two per cent) favored a fully yellow banana, and the next (seventeen per cent) the greenish No. 4. Only seven per cent of those polled preferred the fully ripened No. 7 banana. The remaining four per cent were people who ate only cooked bananas, and so bought only green or greenish fruit.
+
+The United States consumes more bananas than any other country in the world, and Americans eat more bananas than any other fruit, or unprocessed, fruit. Apples and oranges and grapes, though all of great commercial importance, are now increasingly marketed as cider (or applesauce, apple jelly, apple juice), as frozen orange concentrate, and as wine. In 1971, according to records compiled by the United States Department of Agriculture, Americans ate some four billion one hundred and forty million pounds of bananas—an average of upward of eighteen pounds per person and all those bananas (except for a trifling few processed for baby food) were bought fresh. The banana is popular primarily because almost everybody likes its delicate, unassertive flavor. (Simone Beck, the great French cook and collaborator of [Julia Child](https://www.newyorker.com/magazine/profiles/1974/12/23/good-cooking-julia-child-profile), observed in her recent culinary memoir, “Paul Child, the husband of Julia . . . is as fond of bananas as my husband is of chocolate. Just as my husband has a chocolate dessert every night, Paul Child has a banana for breakfast.”) But there are other reasons for the popularity of the banana. Bananas are always and everywhere in season (at Denny’s Market in Stapleton, Nebraska, and on the breakfast menu of the Ritz-Carlton Hotel in Boston), and they are always (even at the Ritz) the least expensive of fruit. Bananas are, in fact, among the least expensive of all foods. At around nineteen cents a pound, they are cheaper than rice (thirty-six cents a pound) or potatoes (twenty-four cents a pound) or dried black beans (thirty-seven cents a pound), or even the cheapest supermarket bread.
+
+Nevertheless, for all its great and growing popularity, the banana has few genuine admirers. The enthusiasm of its Gottschalks and Disraelis and Chases faded with the proletarian abundance of the twentieth-century banana. Such proprietary ardor is now reserved for the avocado, the mango, and the organically grown tomato. The banana, unlike the grapefruit, or even the commonplace apple, has never been a selection of the Fruit-of-the-Month Club. Its place in current American culture is very much like that of the hot dog and the hamburger. Everybody likes the banana, but nobody takes it seriously. Indeed–after fifty years of show-biz songs (“I Like Bananas Cause They Ain’t Got No Bones” and, of course, “Yes! We Have No Bananas”) and jokes (“You may be a fine, upstanding citizen, but that makes no difference to a banana peel”) and sight gags (Harpo Marx peeling a zippered banana) and street talk (“She’s driving him bananas”)—people are much more inclined to take it with the utmost lack of seriousness, as the Alfred E. Neuman, the Keystone Cops and custard pie, the Top Banana of fruit. About the only people (other than the United Fruit Company and the equally banana-minded Standard Fruit & Steamship Company) who continue to take the banana seriously are doctors and nutritionists. The latter are inclined to take it very seriously. They know it to be a food of infinite usefulness in a variety of settings—in the nursery and in the nursing home, in the sickroom and in the obesity clinic, on the snack bar and at the training table.
+
+The edible portion of a ripe banana of average size is considered to weigh one hundred grams (or a little over three ounces) and to contain about eighty-five calories. Three-fourths of its weight (seventy-four and eight-tenths grams) is water, and most of the rest (twenty-two and two-tenths grams) is carbohydrate. Its other components are protein (one and one-tenth grams), ash (eight-tenths of a gram), crude fibre (six-tenths of a gram), fat (two-tenths of a gram), and vitamins and minerals. The vitamins evolved by the banana include A, B1, B2, B6, C, and niacin, and three of these—Vitamin A, Vitamin B6, and Vitamin C—are present in significant amounts. Bananas also manufacture a comprehensive range of minerals. They are especially rich in potassium (some three hundred to four hundred and fifty milligrams per banana) and are well endowed with magnesium and phosphorus. In addition, they contain useful amounts of calcium, sulphur, manganese, chlorine, iodine, copper, zinc, and iron, and a trace (about half a milligram am) of sodium. Almost everything about the constituent chemistry of the banana is nutritionally salubrious. Even its deficiencies have their salutary side. Its low sodium content recommends it for low-sodium diets. Its low fat content recommends it for low-fat diets. Its low protein content (combined with its general dietetic blandness) recommends it for inclusion in the hypoallergenic diet of food-allergy victims undergoing diagnostic tests. And its low caloric value in relation to its bulk (the standard one-hundred-gram banana has twenty fewer calories than an average serving of cottage cheese), together with a high satiety factor produced by its textural density (which approximates that of an avocado), recommends its use in the management of obesity and as a quickly satisfying, and wholesome, between-meals snack. It is, however, the positive attributes of the banana that most often and most widely recommend its use: its serviceable complement of vitamins (whose values, since bananas are rarely cooked, reach the table undiminished), its relative wealth of the essential (and easily depleted) element potassium, and, most important, its singular endowment of carbohydrate.
+
+The nutritional excellence of the banana is created in the course of the ripening process, and the ripening process is very largely a matter of carbohydrate chemistry. The carbohydrate content of a green banana is approximately twenty-two per cent starch and a fraction of one per cent sugar. Ripening is an enzyme action that reverses this relationship. It converts the starch into sugar and a small quantity of the gelatinating substance known as pectin A fully ripe banana averages about one per cent starch and twenty-one per cent sugar. Bananas are thus far richer in sugar than apples (fourteen per cent) or oranges (twelve per cent) or peaches (nine per cent) or any other fruit. Banana sugar is a consortium of sucrose, dextrose, and levulose. Levulose and dextrose are simple sugars and are quickly absorbed, while sucrose is more complicated in structure and more deliberate in action, but analyses have shown all three to be almost entirely utilizable by the human body. The nature and abundance of its sugars (together with the accompanying pectin and some subtler factors) render the banana of particular service in the treatment of certain gastro-intestinal disorders. One of these is a wasting diarrhea called celiac disease, which principally afflicts children in the first few years of life. Its immediate manifestation is a hypersensitivity to some element in the gluten of wheat flour and other cereals, and its natural consequence is severe malnutrition. Bananas are among the few broadly nourishing carbohydrate foods well tolerated by celiac patients in the early stages of the disease, and it has been suggested that the fruit may in some way actually soften the impact of the disease as well as nourish its victims. The banana is usually the only fresh fruit allowed the peptic-ulcer patient, and it is often the first raw fruit included in the diet of victims of colitis. Bananas are important as a dietary supplement in these diseases because they offer a welcome spectrum of vitamins (especially A and C), minerals, and easily digestible sugars, but they are even more valuable because they are free from both chemical and mechanical irritants. Some investigators are inclined to think that the banana may do more than merely not exacerbate the suffering of the peptic-ulcer sufferer. Their studies seem to indicate that an alkaline residue left by the banana gives it an explicit therapeutic power (much like that of such antacids as aluminum hydroxide) to bind or buffer the inflaming flow of hydrochloric acid. The banana also has a strong supporting role in the management of diabetes. Diabetics on a regime of protamine-zinc insulin (or a combination of protamine, zinc, and regular insulin) are routinely advised to eat a midafternoon or bedtime snack of bananas, usually with cream. This function of the banana is not in conflict with that regularly performed by the orange. It is its counterpart. Oranges are uniquely capable of giving an almost instantaneous lift to a sagging blood-sugar level. The banana, with its unique abundance of slowly metabolized sucrose, has the capacity to provide against just such a dangerous sag.
+
+The dietetic benevolence of the banana is not confined to the special diets of the sick or the sickly. It is equally beneficial in the daily diet of the well. Nutritionists consider the banana a food for the whole of life. It has, indeed, an almost incomparable span of usefulness. It is often the first solid food in the infant’s diet, it is a food for boys and girls in the nutritionally trying years of adolescence, it is a food for active youth and sedentary middle age, and it is only too often the last solid food that can be managed by the aged.
+
+But a friend of mine dropped in at a new health-food market on Second Avenue the other day for an appraising look around. He was pleased to find his Deaf Smith peanut butter, from compost-grown peanuts. He found his favorite soybean-oil mayonnaise. He found a carton of Shiloh Farms fertile eggs. He found everything he hoped to find, except bananas. So he spoke to the clerk at the counter. “Bananas?” the clerk said. “You’ve got to be kidding. We don’t carry that kind of stuff. This is a health store.” ♦
+
+Read More
+
+Elements
+
+[
+
+How to Poison an Ocean
+
+](https://www.newyorker.com/news/annals-of-a-warming-planet/how-to-poison-an-ocean#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+Trump envisions a new era of offshore oil drilling. Scientists know all too well how that story ends.
+
+By Jeffrey Marlow
+
+Books
+
+[
+
+How to Measure the Good Life
+
+](https://www.newyorker.com/magazine/2026/04/06/the-meaning-of-your-life-arthur-c-brooks-book-review#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+In a new book, the conservative pundit Arthur C. Brooks offers tips to “young strivers” on maximizing their daily meaning quotient.
+
+By Becca Rothfeld
+
+The Lede
+
+[
+
+TMZ Gets Political
+
+](https://www.newyorker.com/culture/the-lede/tmz-gets-political#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+The celebrity tabloid has been basking in the Schadenfreude of catching politicians asleep on the job.
+
+By Paula Mejía
+
+The Weekend Essay
+
+[
+
+Mad About the Mandolin
+
+](https://www.newyorker.com/culture/the-weekend-essay/mad-about-the-mandolin#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+Returning to making music later in life.
+
+By Tim Parks
+
+American Chronicles
+
+[
+
+The Camps Promising to Turn You—or Your Son—Into an Alpha Male
+
+](https://www.newyorker.com/magazine/2026/04/06/the-camps-promising-to-turn-you-or-your-son-into-an-alpha-male#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+At the Men of War Crucible, you bear-crawl through rivers. At Warrior Week, you dig your own grave. At the Squire Program, your teen-ager can take part, too.
+
+By Charles Bethea
+
+The Lede
+
+[
+
+The Scandal of the Sharenting Economy
+
+](https://www.newyorker.com/culture/the-lede/the-scandal-of-the-sharenting-economy#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+As kidfluencers come of age, some may find the law an imperfect means of restitution for what was lost and broken in their childhoods.
+
+By Jessica Winter
+
+Brave New World Dept.
+
+[
+
+Why Are People Injecting Themselves with Peptides?
+
+](https://www.newyorker.com/magazine/2026/04/13/why-are-people-injecting-themselves-with-peptides#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+Health and wellness influencers are hawking unapproved treatments on the gray market. The future of the F.D.A.—and the health of consumers—is at stake.
+
+By Dhruv Khullar
+
+Annals of Technology
+
+[
+
+Does A.I. Need a Constitution?
+
+](https://www.newyorker.com/magazine/2026/03/30/does-ai-need-a-constitution#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+A new set of precepts is meant to make the chatbot Claude wise, decent, and safe. It also marks a striking transfer of public responsibility from constitutional government to private tech firms.
+
+By Jill Lepore
+
+The Control of Nature
+
+[
+
+Can Sponge Cities Save Us from the Coming Floods?
+
+](https://www.newyorker.com/magazine/2026/04/13/can-sponge-cities-save-us-from-the-coming-floods#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+As the planet gets warmer and the rains fall harder, the future of flood control is looking less like a wall and something more like a park.
+
+By Eric Klinenberg
+
+Inverted
+
+[
+
+The Car-Crash Conspiracy
+
+](https://www.newyorker.com/magazine/2026/04/20/the-car-crash-conspiracy#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+High-speed accidents, crooked lawyers, and poor people desperate for cash—it was the kind of scheme that could have been cooked up only in the Big Easy.
+
+By Patrick Radden Keefe
+
+Letter from Havana
+
+[
+
+Is Cuba Next?
+
+](https://www.newyorker.com/magazine/2026/03/30/is-cuba-next#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+Trump’s campaign to topple foreign adversaries encounters a battered but defiant regime.
+
+By Jon Lee Anderson
+
+A Reporter at Large
+
+[
+
+He Helped Stop Iran from Getting the Bomb
+
+](https://www.newyorker.com/magazine/2026/04/06/he-helped-stop-iran-from-getting-the-bomb#intcid=recommendations_the-new-yorker-article-bottom-recirc-personalized_453bd0b0-4da1-42a3-906d-6e82bdcc04e2_cygnus-personalized_fallback_closr_bktb)
+
+A former C.I.A. officer says that he recruited scientists as part of the United States’ effort to disrupt Iran’s nuclear program.
+
+By David D. Kirkpatrick
+
